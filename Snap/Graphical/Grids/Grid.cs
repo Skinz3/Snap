@@ -7,10 +7,8 @@ using System.Text;
 
 namespace Snap.Graphical.Grids
 {
-    public abstract class Grid : IDrawable
+    public abstract class Grid<T> : IDrawable where T : Cell
     {
-        public event Action<Cell> OnMouseClick;
-
         public int Width
         {
             get;
@@ -26,14 +24,41 @@ namespace Snap.Graphical.Grids
             get;
             private set;
         }
-        private VertexBuffer GridBuffer
+        protected VertexBuffer GridBuffer
         {
             get;
             set;
         }
+
+        public T[] Cells
+        {
+            get;
+            protected set;
+        }
+
+        public Color BordersColor
+        {
+            get;
+            private set;
+        }
+
+        public Grid(Vector2f position, int width, int height, Color bordersColor)
+        {
+            this.Position = position;
+            this.Width = width;
+            this.Heigth = height;
+            this.BordersColor = bordersColor;
+            this.BuildCells();
+            this.BuildVertexBuffer();
+        }
+
+        public abstract void BuildCells();
+
+        public abstract void BuildVertexBuffer();
+
         public void Draw(RenderWindow window)
         {
-            throw new NotImplementedException();
+            GridBuffer.Draw(window, RenderStates.Default);
         }
     }
 }

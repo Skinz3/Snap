@@ -10,32 +10,12 @@ namespace Snap.Example
         static void Main(string[] args)
         {
             VideoMode mode = new VideoMode(1920, 1080);
-            RenderWindow window = new RenderWindow(mode, "SFML.NET");
+            ContextSettings settings = new ContextSettings();
+            settings.AntialiasingLevel = 7;
 
-            window.Closed += (obj, e) => { window.Close(); };
-            window.KeyPressed +=
-                (sender, e) =>
-                {
-                    Window window = (Window)sender;
-                    if (e.Code == Keyboard.Key.Escape)
-                    {
-                        window.Close();
-                    }
-                };
+            MyRenderer renderer = new MyRenderer(mode, "MyRenderer", settings);
 
-            Clock clock = new Clock();
-            float delta = 0f;
-            float angle = 0f;
-            float angleSpeed = 90f;
-
-            while (window.IsOpen)
-            {
-                delta = clock.Restart().AsSeconds();
-                angle += angleSpeed * delta;
-                window.DispatchEvents();
-                window.Clear(Color.White);
-                window.Display();
-            }
+            renderer.Display();
         }
     }
 }
