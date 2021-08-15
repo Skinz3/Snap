@@ -9,5 +9,5 @@
 
 | Name      | Namespace    | 
 | ------------- |:-------------:| 
-| Orthogonal Grid      | Snap.Graphics.Grids.GridOrthogonal |  
-| Isometric Grid | Snap.Graphics.Grids.GridIsometric  | 
+| Orthogonal Grid      | ```Snap.Graphics.Grids.GridOrthogonal``` |  
+| Isometric Grid | ```Snap.Graphics.Grids.GridIsometric```  | 
