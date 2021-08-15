@@ -5,7 +5,7 @@
 
 # Grids
 
-| Name      | Description    | 
+| Name      | Namespace    | 
 | ------------- |:-------------:| 
-| GridOrthogonal      | A 2D orthogonal Grid |  
-| GridIsometric | An 2D isometric grid  | 
+| Orthogonal Grid      | Snap.Graphics.Grids.GridOrthogonal |  
+| Isometric Grid | Snap.Graphics.Grids.GridIsometric  | 
