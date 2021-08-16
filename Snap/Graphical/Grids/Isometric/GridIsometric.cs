@@ -12,9 +12,10 @@ namespace Snap.Graphical.Grids.Isometric
 
         private const int CellHeigth = 43;
 
-        public GridIsometric(Vector2f position, int width, int height, Color bordersColor) : base(position, width, height,bordersColor)
+        public GridIsometric(RenderWindow window, Vector2f position, int width, int height, Color bordersColor, bool optimize = false) :
+            base(window, position, width, height, bordersColor, optimize)
         {
-          
+
         }
 
         public override void BuildCells()
@@ -67,28 +68,29 @@ namespace Snap.Graphical.Grids.Isometric
 
         public override void BuildVertexBuffer()
         {
-            this.GridBuffer = new VertexBuffer(CellIsometric.VerticesCount * (uint)Cells.Length, PrimitiveType.Lines, VertexBuffer.UsageSpecifier.Static);
+            const uint verticesPerCells = 8;
+
+            this.GridBuffer = new VertexBuffer(verticesPerCells * (uint)Cells.Length, PrimitiveType.Lines, VertexBuffer.UsageSpecifier.Static);
 
             uint i = 0;
 
             foreach (var cell in Cells)
             {
-                List<Vertex> result = new List<Vertex>();
+                uint j = 0;
+
+                Vertex[] vertices = new Vertex[verticesPerCells];
 
                 for (int w = 0; w < cell.Points.Length - 1; w++)
                 {
-                    result.Add(new Vertex(cell.Points[w], BordersColor));
-                    result.Add(new Vertex(cell.Points[w + 1], BordersColor));
+                    vertices[j++] = new Vertex(cell.Points[w], BordersColor);
+                    vertices[j++] = new Vertex(cell.Points[w + 1], BordersColor);
                 }
 
-                result.Add(new Vertex(cell.Points[cell.Points.Length - 1], BordersColor));
-                result.Add(new Vertex(cell.Points[0], BordersColor));
+                vertices[j++] = new Vertex(cell.Points[cell.Points.Length - 1], BordersColor);
+                vertices[j++] = new Vertex(cell.Points[0], BordersColor);
 
-                Vertex[] cellVertices = result.ToArray();
-
-
-                this.GridBuffer.Update(cellVertices, (uint)cellVertices.Length, i);
-                i += (uint)cellVertices.Length;
+                this.GridBuffer.Update(vertices, (uint)vertices.Length, i);
+                i += verticesPerCells;
             }
         }
     }

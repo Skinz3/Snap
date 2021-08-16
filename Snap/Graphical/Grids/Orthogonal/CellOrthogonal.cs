@@ -6,23 +6,45 @@ namespace Snap.Graphical.Grids.Orthogonal
 {
     public class CellOrthogonal : Cell
     {
+        /*
+         * The size of the square, in pixels
+         */
         public const int Size = 50;
 
-        public FloatRect Rectangle
+        private FloatRect Rectangle
         {
             get;
             set;
         }
-        public CellOrthogonal(int id) : base(id)
+
+        public override Vector2f Center => new Vector2f(Rectangle.Left + (Size / 2f), Rectangle.Top + (Size / 2f));
+
+        public override Vector2f Position => new Vector2f(Rectangle.Left, Rectangle.Top);
+
+        public override Shape Shape
         {
+            get;
+            set;
         }
 
+        public CellOrthogonal(int id) : base(id)
+        {
+          
+        }
+
+        public void SetRectangle(FloatRect rectangle)
+        {
+            this.Rectangle = rectangle;
+        }
 
         public override bool Contains(Vector2f position)
         {
             return Rectangle.Contains(position.X, position.Y);
         }
-
-
+        public override void BuildShape()
+        {
+            this.Shape = new RectangleShape(new Vector2f(Size, Size));
+            this.Shape.Position = Position;
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace Snap.Example
 {
     public class MyRenderer : Renderer
     {
-        GridOrthogonal Grid
+        GridIsometric Grid
         {
             get;
             set;
@@ -19,7 +19,19 @@ namespace Snap.Example
 
         public MyRenderer(VideoMode mode, string title, ContextSettings settings, Styles styles = Styles.Default) : base(mode, title, settings, styles)
         {
-            this.Grid = new GridOrthogonal(new SFML.System.Vector2f(100, 100), 10, 10, Color.Black);
+            this.Grid = new GridIsometric(Window, new SFML.System.Vector2f(100, 100), 100, 100, Color.Black, true);
+            this.Grid.OnMouseEnter += Grid_OnMouseEnter;
+            this.Grid.OnMouseLeave += Grid_OnMouseLeave;
+        }
+
+        private void Grid_OnMouseLeave(CellIsometric cell)
+        {
+            cell.Shape.FillColor = Color.Transparent;
+        }
+
+        private void Grid_OnMouseEnter(CellIsometric cell)
+        {
+            cell.Shape.FillColor = Color.Blue;
         }
 
         protected override void Draw()

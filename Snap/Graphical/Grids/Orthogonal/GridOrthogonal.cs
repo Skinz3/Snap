@@ -9,7 +9,8 @@ namespace Snap.Graphical.Grids.Orthogonal
 {
     public class GridOrthogonal : Grid<CellOrthogonal>
     {
-        public GridOrthogonal(Vector2f position, int width, int height, Color bordersColor) : base(position, width, height, bordersColor)
+        public GridOrthogonal(RenderWindow window, Vector2f position, int width, int height, Color bordersColor) : 
+            base(window,position, width, height, bordersColor)
         {
 
         }
@@ -26,9 +27,9 @@ namespace Snap.Graphical.Grids.Orthogonal
                 {
                     Cells[id] = new CellOrthogonal(id);
 
-                    float x = i * CellOrthogonal.Size + Position.X;
-                    float y = j * CellOrthogonal.Size + Position.Y;
-                    Cells[id].Rectangle = new FloatRect(x, y, CellOrthogonal.Size, CellOrthogonal.Size);
+                    float x = (i * CellOrthogonal.Size) + Position.X;
+                    float y = (j * CellOrthogonal.Size) + Position.Y;
+                    Cells[id].SetRectangle(new FloatRect(x, y, CellOrthogonal.Size, CellOrthogonal.Size));
 
                     id++;
                 }
@@ -43,13 +44,13 @@ namespace Snap.Graphical.Grids.Orthogonal
             {
                 vertices.Add(new Vertex(new Vector2f(Position.X + x, Position.Y), BordersColor));
 
-                vertices.Add(new Vertex(new Vector2f(Position.X + x, Position.Y + (Heigth * CellOrthogonal.Size)),BordersColor)) ;
+                vertices.Add(new Vertex(new Vector2f(Position.X + x, Position.Y + (Heigth * CellOrthogonal.Size)), BordersColor));
             }
 
             for (int y = 0; y < (Heigth + 1) * CellOrthogonal.Size; y += CellOrthogonal.Size)
             {
                 vertices.Add(new Vertex(new Vector2f(Position.X, Position.Y + y), BordersColor));
-                vertices.Add(new Vertex(new Vector2f(Position.X + (Width * CellOrthogonal.Size), Position.Y + y),BordersColor));
+                vertices.Add(new Vertex(new Vector2f(Position.X + (Width * CellOrthogonal.Size), Position.Y + y), BordersColor));
             }
 
             this.GridBuffer = new VertexBuffer((uint)vertices.Count, PrimitiveType.Lines, VertexBuffer.UsageSpecifier.Static);

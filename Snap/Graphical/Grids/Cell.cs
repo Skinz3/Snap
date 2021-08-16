@@ -16,21 +16,38 @@ namespace Snap.Graphical.Grids
             private set;
         }
 
-        public Vector2f Center
+        public abstract Vector2f Center
         {
             get;
         }
 
-        public Vector2f Position
+        public abstract Vector2f Position
         {
             get;
         }
 
+        public abstract Shape Shape
+        {
+            get;
+            set;
+        }
         public Cell(int id)
         {
             this.Id = id;
         }
 
+        public abstract void BuildShape();
+
         public abstract bool Contains(Vector2f position);
+
+        public override string ToString()
+        {
+            return "Cell ("+Id+")";
+        }
+
+        public void DrawShape(RenderWindow window)
+        {
+            window.Draw(Shape, RenderStates.Default);
+        }
     }
 }

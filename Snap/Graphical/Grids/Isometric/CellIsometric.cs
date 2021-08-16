@@ -8,9 +8,17 @@ namespace Snap.Graphical.Grids.Isometric
 {
     public class CellIsometric : Cell
     {
-        public const uint VerticesCount = 8;
-
         public Vector2f[] Points
+        {
+            get;
+            set;
+        }
+
+        public override Vector2f Center => throw new NotImplementedException();
+
+        public override Vector2f Position => throw new NotImplementedException();
+
+        public override Shape Shape
         {
             get;
             set;
@@ -66,6 +74,21 @@ namespace Snap.Graphical.Grids.Isometric
                 yold = ynew;
             }
             return inside;
+        }
+
+        public override void BuildShape()
+        {
+            ConvexShape shape = new ConvexShape(4);
+            shape.FillColor = Color.Transparent;
+            shape.OutlineThickness = 1f;
+            shape.OutlineColor = new Color(0, 0, 0, 50);
+
+            for (uint i = 0; i < Points.Length; i++)
+            {
+                shape.SetPoint(i, Points[i]);
+            }
+
+            this.Shape = shape;
         }
     }
 }
