@@ -31,6 +31,8 @@ namespace Snap.Graphical.Grids
             get;
             set;
         }
+
+
         public Cell(int id)
         {
             this.Id = id;
@@ -42,12 +44,13 @@ namespace Snap.Graphical.Grids
 
         public override string ToString()
         {
-            return "Cell ("+Id+")";
+            return "Cell (" + Id + ")";
         }
 
         public void DrawShape(RenderWindow window)
         {
             window.Draw(Shape, RenderStates.Default);
         }
+
     }
 }

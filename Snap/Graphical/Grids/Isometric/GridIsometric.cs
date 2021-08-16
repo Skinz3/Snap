@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Snap.Graphical.Grids.Isometric
 {
-    public class GridIsometric : Grid<CellIsometric>
+    public class GridIsometric : Grid
     {
         private const int CellWidth = 86;
 
@@ -47,7 +47,7 @@ namespace Snap.Graphical.Grids.Isometric
                         var right = new Vector2f(offsetX + x * cellWidth + cellWidth, offsetY + y * midCellHeight + midCellHeight);
                         var down = new Vector2f(offsetX + x * cellWidth + midCellWidth, offsetY + y * midCellHeight + cellHeight);
 
-                        Cells[cellId++].Points = new[] { left, top, right, down };
+                        ((CellIsometric)Cells[cellId++]).Points = new[] { left, top, right, down };
                     }
                 }
                 else
@@ -60,7 +60,7 @@ namespace Snap.Graphical.Grids.Isometric
                         var down = new Vector2f(offsetX + x * cellWidth + cellWidth, offsetY + y * midCellHeight + cellHeight);
 
 
-                        Cells[cellId++].Points = new[] { left, top, right, down };
+                        ((CellIsometric)Cells[cellId++]).Points = new[] { left, top, right, down };
                     }
                 }
             }
@@ -74,7 +74,7 @@ namespace Snap.Graphical.Grids.Isometric
 
             uint i = 0;
 
-            foreach (var cell in Cells)
+            foreach (CellIsometric cell in Cells)
             {
                 uint j = 0;
 

@@ -9,9 +9,9 @@ using System.Text;
 
 namespace Snap.Graphical.Grids
 {
-    public abstract class Grid<T> : IDrawable where T : Cell
+    public abstract class Grid : IDrawable 
     {
-        public delegate void MouseEvent(T cell);
+        public delegate void MouseEvent(Cell cell);
         public event MouseEvent OnMouseEnter;
         public event MouseEvent OnMouseLeave;
         public event MouseEvent OnMouseRightClick;
@@ -49,7 +49,7 @@ namespace Snap.Graphical.Grids
             set;
         }
 
-        public T[] Cells
+        public Cell[] Cells
         {
             get;
             protected set;
@@ -64,7 +64,7 @@ namespace Snap.Graphical.Grids
             get;
             set;
         }
-        public T HoveredCell
+        public Cell HoveredCell
         {
             get;
             private set;
@@ -95,7 +95,7 @@ namespace Snap.Graphical.Grids
         private void OnMouseMoved(object sender, MouseMoveEventArgs e)
         {
             Vector2f position = Window.MapPixelToCoords(new Vector2i(e.X, e.Y));
-            T cell = Cells.FirstOrDefault(x => x.Contains(position));
+            Cell cell = Cells.FirstOrDefault(x => x.Contains(position));
 
             if (HoveredCell != null && cell != HoveredCell)
             {
@@ -113,7 +113,7 @@ namespace Snap.Graphical.Grids
         private void OnMouseButtonPressed(object sender, MouseButtonEventArgs e)
         {
             Vector2f position = Window.MapPixelToCoords(new Vector2i(e.X, e.Y));
-            T cell = Cells.FirstOrDefault(x => x.Contains(position));
+            Cell cell = Cells.FirstOrDefault(x => x.Contains(position));
 
             if (cell != null)
             {
@@ -143,8 +143,10 @@ namespace Snap.Graphical.Grids
             }
 
             GridBuffer.Draw(window, RenderStates.Default);
-
-
+        }
+        public T[] GetCells<T>() where T : Cell
+        {
+            return (T[])Cells;
         }
     }
 }

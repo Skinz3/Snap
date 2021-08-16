@@ -8,15 +8,16 @@ namespace Snap.Graphical.Grids.Isometric
 {
     public class CellIsometric : Cell
     {
+        public override Vector2f Center => new Vector2f((Points[0].X + Points[2].X) / 2, (Points[1].Y + Points[3].Y) / 2);
+
+        public override Vector2f Position => Points[0];
+
+
         public Vector2f[] Points
         {
             get;
             set;
         }
-
-        public override Vector2f Center => new Vector2f((Points[0].X + Points[2].X) / 2, (Points[1].Y + Points[3].Y) / 2);
-
-        public override Vector2f Position => Points[0];
 
         public override Shape Shape
         {

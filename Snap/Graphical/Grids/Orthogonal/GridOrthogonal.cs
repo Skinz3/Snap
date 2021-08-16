@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Snap.Graphical.Grids.Orthogonal
 {
-    public class GridOrthogonal : Grid<CellOrthogonal>
+    public class GridOrthogonal : Grid
     {
         public GridOrthogonal(RenderWindow window, Vector2f position, int width, int height, Color bordersColor, bool optimize = false) :
             base(window, position, width, height, bordersColor, optimize)
@@ -25,12 +25,13 @@ namespace Snap.Graphical.Grids.Orthogonal
             {
                 for (int j = 0; j < Heigth; j++)
                 {
-                    Cells[id] = new CellOrthogonal(id);
+                    var cell = new CellOrthogonal(id);
 
                     float x = (i * CellOrthogonal.Size) + Position.X;
                     float y = (j * CellOrthogonal.Size) + Position.Y;
-                    Cells[id].SetRectangle(new FloatRect(x, y, CellOrthogonal.Size, CellOrthogonal.Size));
+                    cell.SetRectangle(new FloatRect(x, y, CellOrthogonal.Size, CellOrthogonal.Size));
 
+                    Cells[id] = cell;
                     id++;
                 }
             }
