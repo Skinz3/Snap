@@ -14,7 +14,7 @@ namespace Snap.Graphical.Grids.Isometric
 
         public GridIsometric(Vector2f position, int width, int height, Color bordersColor) : base(position, width, height,bordersColor)
         {
-
+          
         }
 
         public override void BuildCells()
@@ -23,7 +23,7 @@ namespace Snap.Graphical.Grids.Isometric
 
             for (int id = 0; id < Cells.Length; id++)
             {
-                Cells[id] = new CellIsometric(this, id);
+                Cells[id] = new CellIsometric(id);
             }
 
             int cellId = 0;
@@ -73,7 +73,20 @@ namespace Snap.Graphical.Grids.Isometric
 
             foreach (var cell in Cells)
             {
-                Vertex[] cellVertices = cell.GetLineVertices();
+                List<Vertex> result = new List<Vertex>();
+
+                for (int w = 0; w < cell.Points.Length - 1; w++)
+                {
+                    result.Add(new Vertex(cell.Points[w], BordersColor));
+                    result.Add(new Vertex(cell.Points[w + 1], BordersColor));
+                }
+
+                result.Add(new Vertex(cell.Points[cell.Points.Length - 1], BordersColor));
+                result.Add(new Vertex(cell.Points[0], BordersColor));
+
+                Vertex[] cellVertices = result.ToArray();
+
+
                 this.GridBuffer.Update(cellVertices, (uint)cellVertices.Length, i);
                 i += (uint)cellVertices.Length;
             }

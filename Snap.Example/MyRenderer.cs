@@ -2,6 +2,7 @@
 using SFML.Window;
 using Snap.Graphical;
 using Snap.Graphical.Grids.Isometric;
+using Snap.Graphical.Grids.Orthogonal;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Snap.Example
 {
     public class MyRenderer : Renderer
     {
-        GridIsometric Grid
+        GridOrthogonal Grid
         {
             get;
             set;
@@ -18,7 +19,7 @@ namespace Snap.Example
 
         public MyRenderer(VideoMode mode, string title, ContextSettings settings, Styles styles = Styles.Default) : base(mode, title, settings, styles)
         {
-            this.Grid = new GridIsometric(new SFML.System.Vector2f(100, 100), 10, 10, Color.Black);
+            this.Grid = new GridOrthogonal(new SFML.System.Vector2f(100, 100), 10, 10, Color.Black);
         }
 
         protected override void Draw()

@@ -20,7 +20,7 @@ namespace Snap.Graphical.Grids
         {
             get;
         }
-       
+
         public Vector2f Position
         {
             get;
@@ -31,6 +31,6 @@ namespace Snap.Graphical.Grids
             this.Id = id;
         }
 
-        public abstract Vertex[] GetLineVertices();
+        public abstract bool Contains(Vector2f position);
     }
 }

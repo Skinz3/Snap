@@ -30,6 +30,12 @@ namespace Snap.Graphical.Grids
             set;
         }
 
+        public bool HandleEvents
+        {
+            get;
+            set;
+        }
+
         public T[] Cells
         {
             get;

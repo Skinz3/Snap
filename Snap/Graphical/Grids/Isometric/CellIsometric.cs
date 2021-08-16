@@ -16,30 +16,56 @@ namespace Snap.Graphical.Grids.Isometric
             set;
         }
 
-        private Grid<CellIsometric> Grid
+        public CellIsometric(int id) : base(id)
         {
-            get;
-            set;
-        }
-        public CellIsometric(Grid<CellIsometric> grid, int id) : base(id)
-        {
-            this.Grid = grid;
-        }
 
-        public override Vertex[] GetLineVertices()
+        }
+        /*
+         * Returns true if the specified point is inside the cell polygon, 
+         * else, return false.
+         */
+        public override bool Contains(Vector2f point)
         {
-            List<Vertex> result = new List<Vertex>();
+            float xnew, ynew;
+            float xold, yold;
+            float x1, y1;
+            float x2, y2;
+            bool inside = false;
 
-            for (int i = 0; i < Points.Length - 1; i++)
+            if (Points.Length < 3)
+                return false;
+
+            xold = Points[Points.Length - 1].X;
+            yold = Points[Points.Length - 1].Y;
+
+            foreach (Vector2f t in Points)
             {
-                result.Add(new Vertex(Points[i], Grid.BordersColor));
-                result.Add(new Vertex(Points[i + 1], Grid.BordersColor));
+                xnew = t.X;
+                ynew = t.Y;
+
+                if (xnew > xold)
+                {
+                    x1 = xold;
+                    x2 = xnew;
+                    y1 = yold;
+                    y2 = ynew;
+                }
+                else
+                {
+                    x1 = xnew;
+                    x2 = xold;
+                    y1 = ynew;
+                    y2 = yold;
+                }
+
+                if ((xnew < point.X) == (point.X <= xold) && (point.Y - (long)y1) * (x2 - x1) < (y2 - (long)y1) * (point.X - x1))
+                {
+                    inside = !inside;
+                }
+                xold = xnew;
+                yold = ynew;
             }
-
-            result.Add(new Vertex(Points[Points.Length - 1], Grid.BordersColor));
-            result.Add(new Vertex(Points[0], Grid.BordersColor));
-
-            return result.ToArray();
+            return inside;
         }
     }
 }
