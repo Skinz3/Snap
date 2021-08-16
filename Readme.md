@@ -4,6 +4,10 @@
   Written in C# .NET Core 3.1, this library is multiplateform.
   * SFML : https://www.sfml-dev.org/download/sfml.net/
 
+##### Table of Contents  
+[Grids](#Grids)  
+[Emphasis](#emphasis)  
+
 # Renderer
 
 * The Snap.Graphical.Renderer class encapsulates the render window and how it works. It is an abstract class. Here an example :
