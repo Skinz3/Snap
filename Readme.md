@@ -2,6 +2,8 @@
   <img src="Misc/logo.png" />
 </p>
 
+![](https://www.repostatus.org/badges/latest/wip.svg)
+
 # Hi there
 
   Snap is a framework on top of SFML.NET proving a lot of utility to make a 2D game.
