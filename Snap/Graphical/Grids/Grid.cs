@@ -12,7 +12,6 @@ namespace Snap.Graphical.Grids
     public abstract class Grid<T> : IDrawable where T : Cell
     {
         public delegate void MouseEvent(T cell);
-
         public event MouseEvent OnMouseEnter;
         public event MouseEvent OnMouseLeave;
         public event MouseEvent OnMouseRightClick;
