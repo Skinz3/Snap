@@ -19,7 +19,9 @@
 6. [Fonts](#Fonts)
 7. [Lightning](#Lightnings)
 8. [Physics](#Physics)
-9. [Utils](#Utils)
+9. [Collisions](#Collisions)
+10.[Network](#Network)
+11. [Utils](#Utils)
 
 # Renderer
 
