@@ -7,6 +7,13 @@
 
 # Grids
 
+## Orthogonal Grid
+
+* Namespace : ```Snap.Graphics.Grids.GridOrthogonal```
+
+* Represents a two-dimensional orthogonal grid. 
+
+[](Misc/orth.png)
 | Name      | Namespace    | 
 | ------------- |:-------------:| 
 | Orthogonal Grid      | ```Snap.Graphics.Grids.GridOrthogonal``` |  
