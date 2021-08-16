@@ -14,7 +14,8 @@
 5. [Animations](#Animations)
 6. [Fonts](#Fonts)
 7. [Lightning](#Lightnings)
-8. [Utils](#Utils)
+8. [Physics](#Physics)
+9. [Utils](#Utils)
 
 # Renderer
 
