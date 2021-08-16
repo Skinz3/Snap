@@ -19,7 +19,7 @@ namespace Snap.Example
 
         public MyRenderer(VideoMode mode, string title, ContextSettings settings, Styles styles = Styles.Default) : base(mode, title, settings, styles)
         {
-            this.Grid = new GridIsometric(Window, new SFML.System.Vector2f(100, 100), 100, 100, Color.Black, true);
+            this.Grid = new GridIsometric(Window, new SFML.System.Vector2f(100, 100), 100, 100, Color.Black, false);
             this.Grid.OnMouseEnter += Grid_OnMouseEnter;
             this.Grid.OnMouseLeave += Grid_OnMouseLeave;
         }

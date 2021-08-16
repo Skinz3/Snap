@@ -9,8 +9,8 @@ namespace Snap.Graphical.Grids.Orthogonal
 {
     public class GridOrthogonal : Grid<CellOrthogonal>
     {
-        public GridOrthogonal(RenderWindow window, Vector2f position, int width, int height, Color bordersColor) : 
-            base(window,position, width, height, bordersColor)
+        public GridOrthogonal(RenderWindow window, Vector2f position, int width, int height, Color bordersColor, bool optimize = false) :
+            base(window, position, width, height, bordersColor, optimize)
         {
 
         }
