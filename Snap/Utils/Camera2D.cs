@@ -24,12 +24,15 @@ namespace Snap.Utils
             this.Window = window;
             this.View = Window.GetView();
         }
-
+        public void Zoom(float factor)
+        {
+            this.View.Zoom(factor);
+        }
         public void Move(Vector2f delta)
         {
             this.View.Move(delta);
         }
-        public void Update()
+        public virtual void Update()
         {
             this.Window.SetView(View);
         }

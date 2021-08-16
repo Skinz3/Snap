@@ -7,14 +7,8 @@ using System.Text;
 
 namespace Snap.Utils
 {
-    public class KeyboardCamera
+    public class KeyboardCamera : Camera2D
     {
-        private Camera2D Camera2D
-        {
-            get;
-            set;
-        }
-
         public Dictionary<Keyboard.Key, Vector2f> KeysMapping
         {
             get;
@@ -27,9 +21,8 @@ namespace Snap.Utils
             set;
         }
 
-        public KeyboardCamera(RenderWindow window, float speed)
+        public KeyboardCamera(RenderWindow window, float speed) : base(window)
         {
-            this.Camera2D = new Camera2D(window);
             this.KeysMapping = new Dictionary<Keyboard.Key, Vector2f>()
             {
                 { Keyboard.Key.Z,new Vector2f(0,-1) },
@@ -39,20 +32,17 @@ namespace Snap.Utils
             };
 
             this.Speed = speed;
-
-
         }
 
-
-        public void Update()
+        public override void Update()
         {
-            Camera2D.Update();
+            base.Update();
 
             foreach (var pair in KeysMapping)
             {
                 if (Keyboard.IsKeyPressed(pair.Key))
                 {
-                    Camera2D.Move(pair.Value * Speed);
+                    base.Move(pair.Value * Speed);
                 }
             }
         }
