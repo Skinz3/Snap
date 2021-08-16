@@ -1,6 +1,8 @@
-![](Misc/logo.png)
+<p align="center">
+  <img src="Misc/logo.png" />
+</p>
 
-# Welcome to Snap
+# Hi there
 
   Snap is a framework on top of SFML.NET proving a lot of utility to make a 2D game.
   Written in C# .NET Core 3.1, this library is multiplateform.
