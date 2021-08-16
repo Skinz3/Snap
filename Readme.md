@@ -4,7 +4,13 @@
   Written in C# .NET Core 3.1, this library is multiplateform.
 
 1. [Renderer](#Renderer)
-2. [Grids](#Grids)    
+2. [Grids](#Grids)
+3. [Textures](#Textures)  
+4. [Map](#Map)  
+5. [Animations](#Animations)
+6. [Fonts](#Fonts)
+7. [Lightning](#Lightnings)
+8. [Utils](#Utils)
 
 # Renderer
 
