@@ -11,11 +11,15 @@
 
 * Namespace : ```Snap.Graphics.Grids.GridOrthogonal```
 
-* Represents a two-dimensional orthogonal grid. 
+* Represents a two-dimensional orthogonal grid. Used to map tiles in a side scroller or top down game. 
+  The grid is rendered using a VertexBuffer, this allows to gain a lot in performance 
 
 ![](Misc/orth.png)
 
-| Name      | Namespace    | 
-| ------------- |:-------------:| 
-| Orthogonal Grid      | ```Snap.Graphics.Grids.GridOrthogonal``` |  
-| Isometric Grid | ```Snap.Graphics.Grids.GridIsometric```  | 
+## Isometric Grid
+
+* Namespace : ```Snap.Graphics.Grids.GridIsometric```
+
+* Represents an isometric grid. Also rendered using VertexBuffer.
+
+![](Misc/isometric.png)
