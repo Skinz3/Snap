@@ -13,6 +13,12 @@ public event MouseEvent OnMouseEnter;
 public event MouseEvent OnMouseLeave;
 public event MouseEvent OnMouseRightClick;
 public event MouseEvent OnMouseLeftClick;
+
+* There is two rendering mode, optimized and unoptimized mode. 
+  this parameter can be passed in the Grid constructor, its default value is false.
+  In the optimized mode, the events will not be processed, and the rendering will be done using a vertex buffer. 
+  The appearance of the cells will not be editable. Otherwise, each cell will be represented by ```SFML.Graphics.ConvexShape ```. 
+
 ```
 ## Orthogonal Grid
 
