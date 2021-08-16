@@ -13,7 +13,8 @@
 
 * Represents a two-dimensional orthogonal grid. 
 
-[](Misc/orth.png)
+![](Misc/orth.png)
+
 | Name      | Namespace    | 
 | ------------- |:-------------:| 
 | Orthogonal Grid      | ```Snap.Graphics.Grids.GridOrthogonal``` |  
