@@ -1,3 +1,5 @@
+![](Misc/logo.png)
+
 # Welcome to Snap
 
   Snap is a framework on top of SFML.NET proving a lot of utility to make a 2D game.
