@@ -4,6 +4,25 @@
   Written in C# .NET Core 3.1, this library is multiplateform.
   * SFML : https://www.sfml-dev.org/download/sfml.net/
 
+# Renderer
+
+* The Snap.Graphical.Renderer class encapsulates the render window and how it works. It is an abstract class. Here an example :
+
+```csharp
+ public class MyRenderer : Renderer
+    {
+        public MyRenderer(VideoMode mode, string title, ContextSettings settings, Styles styles = Styles.Default) : base(mode, title, settings, styles)
+        {
+            // Create your ressources here
+        }
+
+        protected override void Draw()
+        {
+            // Draw your ressources here
+        }
+    }
+```
+
 # Grids
 
 * For each grid, there are events dealing with user inputs 
