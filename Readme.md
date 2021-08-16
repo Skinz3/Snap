@@ -7,8 +7,9 @@
 # Hi there
 
   Snap is a framework on top of SFML.NET proving a lot of utility and an architectural proposal to make a 2D game.
-  Written in C# .NET Core 3.1, this library is multiplateform. ![](https://www.repostatus.org/badges/latest/wip.svg)
+  Written in C# .NET Core 3.1, this library is multiplateform. 
 
+  ![](https://www.repostatus.org/badges/latest/wip.svg)
 
 1. [Renderer](#Renderer)
 2. [Grids](#Grids)
@@ -75,3 +76,16 @@ public event MouseEvent OnMouseLeftClick;
 * Represents an isometric grid. Also rendered using VertexBuffer.
 
 ![](Misc/isometric.png)
+
+# Utils
+
+## Camera2D
+
+* Camera2D is what you need if you want to scroll, rotate or zoom your world. They are also the key to creating split screens and mini-maps.
+  you can use ``` Move(Vector2f delta) ``` to move the camera. 
+
+  > WIP
+
+## KeyboardCamera
+
+  > WIP
