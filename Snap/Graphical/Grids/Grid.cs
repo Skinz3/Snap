@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Snap.Graphical.Grids
 {
-    public abstract class Grid : IDrawable 
+    public abstract class Grid : IDrawable
     {
         public delegate void MouseEvent(Cell cell);
         public event MouseEvent OnMouseEnter;
@@ -144,9 +144,9 @@ namespace Snap.Graphical.Grids
 
             GridBuffer.Draw(window, RenderStates.Default);
         }
-        public T[] GetCells<T>() where T : Cell
+        public Cell GetCell(int id)
         {
-            return (T[])Cells;
+            return Cells[id];
         }
     }
 }

@@ -4,6 +4,8 @@ using Snap.Graphical;
 using Snap.Graphical.Grids;
 using Snap.Graphical.Grids.Isometric;
 using Snap.Graphical.Grids.Orthogonal;
+using Snap.Graphical.Maps;
+using Snap.Graphical.Textures;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +14,7 @@ namespace Snap.Example
 {
     public class MyRenderer : Renderer
     {
-        GridIsometric Grid
+        Map Map
         {
             get;
             set;
@@ -20,24 +22,18 @@ namespace Snap.Example
 
         public MyRenderer(VideoMode mode, string title, ContextSettings settings, Styles styles = Styles.Default) : base(mode, title, settings, styles)
         {
-            this.Grid = new GridIsometric(Window, new SFML.System.Vector2f(100, 100), 10, 10, Color.Black, false);
-            this.Grid.OnMouseEnter += Grid_OnMouseEnter;
-            this.Grid.OnMouseLeave += Grid_OnMouseLeave;
-        }
+            var grid = new GridOrthogonal(Window, new SFML.System.Vector2f(100, 100), 10, 10, Color.Black, false);
+            this.Map = new Map(grid);
 
-        private void Grid_OnMouseLeave(Cell cell)
-        {
-            cell.Shape.FillColor = Color.Transparent;
-        }
+            var texture = TextureManager.GetTextureRecord("tile");
+            var cell = Map.Grid.GetCell(0);
 
-        private void Grid_OnMouseEnter(Cell cell)
-        {
-            cell.Shape.FillColor = Color.Blue;
+            Map.AddElement(LayerEnum.Ground, cell, texture);
         }
 
         protected override void Draw()
         {
-            this.Grid.Draw(Window);
+            this.Map.Draw(Window);
         }
     }
 }
