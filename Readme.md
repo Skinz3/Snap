@@ -6,7 +6,7 @@
 
 # Hi there
 
-  Snap is a framework on top of SFML.NET proving a lot of utility to make a 2D game.
+  Snap is a framework on top of SFML.NET proving a lot of utility and an architectural proposal to make a 2D game.
   Written in C# .NET Core 3.1, this library is multiplateform. ![](https://www.repostatus.org/badges/latest/wip.svg)
 
 
@@ -20,7 +20,8 @@
 8. [Physics](#Physics)
 9. [Collisions](#Collisions)
 10. [Network](#Network)
-11. [Utils](#Utils)
+11. [Sounds](#Sounds)
+12. [Utils](#Utils)
 
 # Renderer
 
