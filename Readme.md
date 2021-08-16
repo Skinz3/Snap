@@ -4,8 +4,8 @@
   Written in C# .NET Core 3.1, this library is multiplateform.
 
   ##### Table of Contents  
-[Grids](#Grids)  
-[Renderer](#Renderer)  
+1. [Renderer](#Renderer)
+2. [Grids](#Grids)    
 
 # Renderer
 
