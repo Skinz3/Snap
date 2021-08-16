@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <Folder Include="Graphical\Animations\" />
+    <Folder Include="Graphical\Textures\" />
   </ItemGroup>
 
 </Project>
