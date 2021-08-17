@@ -24,7 +24,7 @@ namespace Snap.Grids.Isometric
 
             for (int id = 0; id < Cells.Length; id++)
             {
-                Cells[id] = new CellIsometric(id);
+                Cells[id] = new CellIsometric(id, 0, 0); // WIP
             }
 
             int cellId = 0;

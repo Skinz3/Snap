@@ -25,7 +25,7 @@ namespace Snap.Grids.Isometric
             set;
         }
 
-        public CellIsometric(int id) : base(id)
+        public CellIsometric(int id, int x, int y) : base(id, x, y)
         {
 
         }
