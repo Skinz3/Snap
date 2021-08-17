@@ -13,21 +13,22 @@
 
 1. [Renderer](#Renderer)
 2. [Grids](#Grids)
-3. [Textures](#Textures)  
-4. [Map](#Map)  
-5. [Animations](#Animations)
-6. [Fonts](#Fonts)
-7. [Lightning](#Lightnings)
-8. [Physics](#Physics)
-9. [Collisions](#Collisions)
-10. [Network](#Network)
-11. [Sounds](#Sounds)
-12. [Serialization](#Serialization)
-13. [Utils](#Utils)
+3. [Pathfinding](#Pathfinding)
+4. [Textures](#Textures)  
+5. [Map](#Map)  
+6. [Animations](#Animations)
+7. [Fonts](#Fonts)
+8. [Lightning](#Lightnings)
+9. [Physics](#Physics)
+10. [Collisions](#Collisions)
+11. [Network](#Network)
+12. [Sounds](#Sounds)
+13. [Serialization](#Serialization)
+14. [Utils](#Utils)
 
 # Renderer
 
-* The Snap.Graphical.Renderer class encapsulates the render window and how it works. It is an abstract class. Here an example :
+* The Snap.Renderer class encapsulates the render window and how it works. It is an abstract class. Here an example :
 
 ```csharp
  public class MyRenderer : Renderer
@@ -63,7 +64,7 @@ public event MouseEvent OnMouseLeftClick;
 
 ## Orthogonal Grid
 
-* Namespace : ```Snap.Graphics.Grids.GridOrthogonal```
+* Namespace : ```Snap.Grids.GridOrthogonal```
 
 * Represents a two-dimensional orthogonal grid. Used to map tiles in a side scroller or top down game. 
 
@@ -71,11 +72,22 @@ public event MouseEvent OnMouseLeftClick;
 
 ## Isometric Grid
 
-* Namespace : ```Snap.Graphics.Grids.GridIsometric```
+* Namespace : ```Snap.Grids.GridIsometric```
 
 * Represents an isometric grid. Also rendered using VertexBuffer.
 
 ![](Misc/isometric.png)
+
+# Pathfinding
+
+* Namespace : ``` Snap.Paths.Pathfinder ```
+
+* Snap contains a pathfinder, working with ```Snap.Grids```. This pathfinder is an optimized implementation of AStar Algorithm (https://en.wikipedia.org/wiki/A*_search_algorithm)
+
+* Pathfinder constructor takes two arguments. ``` public Pathfinder(Grid grid, ICellMetaProvider cellMetaProvider) ```. 
+* ``` ICellMetaProvider ``` is an interface that you will need to implement. It provides information on obstacles.
+
+* This pathfinding algorithm assumes that there are eight possible cell-to-cell directions. This parameter can be reduced to 4 depending on the ```diagonal``` parameter of the ``` Pathfinder.FindPath()``` method.
 
 # Utils
 

@@ -52,11 +52,10 @@ namespace Snap.Paths
             set;
         }
 
-  
-
         public Pathfinder(Grid grid, ICellMetaProvider cellMetaProvider)
         {
             this.Grid = grid;
+            this.CellMetaProvider = cellMetaProvider;
         }
 
 
@@ -106,7 +105,7 @@ namespace Snap.Paths
                     if (newLocation < 0 || newLocation >= Grid.Size)
                         continue;
 
-                    if (!this.CellMetaProvider.IsWalkable(newLocationCell.Id))
+                    if (!this.CellMetaProvider.IsWalkable(newLocationCell))
                         continue;
 
                     double newG = matrix[location].G + 1;
@@ -186,7 +185,7 @@ namespace Snap.Paths
                     if (newLocation < 0 || newLocation >= Grid.Size)
                         continue;
 
-                    if (!this.CellMetaProvider.IsWalkable(newLocationCell.Id))
+                    if (!this.CellMetaProvider.IsWalkable(newLocationCell))
                         continue;
 
                     double newG = matrix[location].G + 1;
