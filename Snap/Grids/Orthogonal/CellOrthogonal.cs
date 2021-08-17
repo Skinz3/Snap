@@ -2,14 +2,14 @@
 using SFML.System;
 using System.Collections.Generic;
 
-namespace Snap.Graphical.Grids.Orthogonal
+namespace Snap.Grids.Orthogonal
 {
     public class CellOrthogonal : Cell
     {
         /*
          * The size of the square, in pixels
          */
-        public const int Size = 50;
+        public const int Size = 20;
 
         private FloatRect Rectangle
         {
@@ -27,9 +27,9 @@ namespace Snap.Graphical.Grids.Orthogonal
             set;
         }
 
-        public CellOrthogonal(int id) : base(id)
+        public CellOrthogonal(int id, int x, int y) : base(id, x, y)
         {
-          
+
         }
 
         public void SetRectangle(FloatRect rectangle)

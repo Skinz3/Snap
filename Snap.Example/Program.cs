@@ -1,7 +1,7 @@
 ﻿using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
-using Snap.Graphical.Textures;
+using Snap.Textures;
 using System;
 
 namespace Snap.Example

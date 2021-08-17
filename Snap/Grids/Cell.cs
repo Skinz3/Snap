@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Snap.Graphical.Grids
+namespace Snap.Grids
 {
     public abstract class Cell
     {
@@ -32,10 +32,21 @@ namespace Snap.Graphical.Grids
             set;
         }
 
-
-        public Cell(int id)
+        public int X
+        {
+            get;
+            private set;
+        }
+        public int Y
+        {
+            get;
+            private set;
+        }
+        public Cell(int id, int x, int y)
         {
             this.Id = id;
+            this.X = x;
+            this.Y = y;
         }
 
         public abstract void BuildShape();

@@ -1,13 +1,14 @@
 ﻿using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
-using Snap.Graphical.Grids;
+using Snap.Grids;
+using Snap.Paths;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Snap.Graphical.Grids
+namespace Snap.Grids
 {
     public abstract class Grid : IDrawable
     {
@@ -69,6 +70,9 @@ namespace Snap.Graphical.Grids
             get;
             private set;
         }
+
+        public int Size => Width * Heigth;
+
         public Grid(RenderWindow window, Vector2f position, int width, int height, Color bordersColor, bool optimize = false)
         {
             this.Window = window;
@@ -110,6 +114,48 @@ namespace Snap.Graphical.Grids
             HoveredCell = cell;
         }
 
+        public Cell GetNearestCellInDirection(Cell cell, DirectionsEnum direction)
+        {
+            return GetCellsInDirection(cell, direction, 1).FirstOrDefault();
+        }
+        public IEnumerable<Cell> GetCellsInDirection(Cell cell, DirectionsEnum directionsEnum, int delta)
+        {
+            List<Cell> cells = new List<Cell>();
+
+            for (int i = 1; i <= delta; i++)
+            {
+                switch (directionsEnum)
+                {
+                    case DirectionsEnum.East:
+                        cells.Add(GetCell(cell.X + i, cell.Y));
+                        break;
+                    case DirectionsEnum.SouthEast:
+                        cells.Add(GetCell(cell.X + i, cell.Y + i));
+                        break;
+                    case DirectionsEnum.South:
+                        cells.Add(GetCell(cell.X, cell.Y + i));
+                        break;
+                    case DirectionsEnum.SouthWest:
+                        cells.Add(GetCell(cell.X - i, cell.Y + i));
+                        break;
+                    case DirectionsEnum.West:
+                        cells.Add(GetCell(cell.X - i, cell.Y));
+                        break;
+                    case DirectionsEnum.NorthWest:
+                        cells.Add(GetCell(cell.X - i, cell.Y - i));
+                        break;
+                    case DirectionsEnum.North:
+                        cells.Add(GetCell(cell.X, cell.Y - i));
+                        break;
+                    case DirectionsEnum.NorthEast:
+                        cells.Add(GetCell(cell.X + i, cell.Y - i));
+                        break;
+                }
+            }
+
+            return cells.Where(x => x != null);
+        }
+
         private void OnMouseButtonPressed(object sender, MouseButtonEventArgs e)
         {
             Vector2f position = Window.MapPixelToCoords(new Vector2i(e.X, e.Y));
@@ -147,6 +193,21 @@ namespace Snap.Graphical.Grids
         public Cell GetCell(int id)
         {
             return Cells[id];
+        }
+        public bool IsInMap(int x, int y)
+        {
+            return x < Width && y < Heigth && x >= 0 && y >= 0;
+        }
+        public Cell GetCell(int x,int y)
+        {
+            if (!IsInMap(x, y))
+            {
+                return null;
+            }
+            else
+            {
+                return GetCell(x + Width * y);
+            }
         }
     }
 }

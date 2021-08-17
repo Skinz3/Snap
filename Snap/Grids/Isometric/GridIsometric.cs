@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Snap.Graphical.Grids.Isometric
+namespace Snap.Grids.Isometric
 {
     public class GridIsometric : Grid
     {

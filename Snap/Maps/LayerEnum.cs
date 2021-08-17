@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Snap.Graphical.Maps
+namespace Snap.Maps
 {
     public enum LayerEnum
     { 

@@ -1,11 +1,11 @@
 ﻿using SFML.Graphics;
 using SFML.Window;
-using Snap.Graphical;
-using Snap.Graphical.Grids;
-using Snap.Graphical.Grids.Isometric;
-using Snap.Graphical.Grids.Orthogonal;
-using Snap.Graphical.Maps;
-using Snap.Graphical.Textures;
+using Snap;
+using Snap.Grids;
+using Snap.Grids.Isometric;
+using Snap.Grids.Orthogonal;
+using Snap.Maps;
+using Snap.Textures;
 using Snap.Utils;
 using System;
 using System.Collections.Generic;

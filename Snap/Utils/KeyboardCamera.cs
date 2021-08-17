@@ -31,7 +31,13 @@ namespace Snap.Utils
                 { Keyboard.Key.D,new Vector2f(1,0) },
             };
 
+            this.Window.MouseWheelScrolled += Window_MouseWheelScrolled; 
             this.Speed = speed;
+        }
+
+        private void Window_MouseWheelScrolled(object sender, MouseWheelScrollEventArgs e)
+        {
+            base.Zoom(1 - (e.Delta / 10));
         }
 
         public override void Update()

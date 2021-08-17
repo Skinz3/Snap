@@ -1,11 +1,11 @@
 ﻿using SFML.Graphics;
 using SFML.System;
-using Snap.Graphical.Grids.Isometric;
+using Snap.Grids.Isometric;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Snap.Graphical.Grids.Orthogonal
+namespace Snap.Grids.Orthogonal
 {
     public class GridOrthogonal : Grid
     {
@@ -19,22 +19,17 @@ namespace Snap.Graphical.Grids.Orthogonal
         {
             this.Cells = new CellOrthogonal[Width * Heigth];
 
-            int id = 0;
-
-            for (int i = 0; i < Width; i++)
+            for (int id = 0; id < Width * Heigth; id++)
             {
-                for (int j = 0; j < Heigth; j++)
-                {
-                    var cell = new CellOrthogonal(id);
+                int x = id % Width;
+                int y = (id - x) / Width;
 
-                    float x = (i * CellOrthogonal.Size) + Position.X;
-                    float y = (j * CellOrthogonal.Size) + Position.Y;
-                    cell.SetRectangle(new FloatRect(x, y, CellOrthogonal.Size, CellOrthogonal.Size));
-
-                    Cells[id] = cell;
-                    id++;
-                }
+                Vector2f position = new Vector2f((x * CellOrthogonal.Size) + Position.X, (y * CellOrthogonal.Size) + Position.Y);
+                CellOrthogonal cell = new CellOrthogonal(id, x, y);
+                cell.SetRectangle(new FloatRect(position.X, position.Y, CellOrthogonal.Size, CellOrthogonal.Size));
+                Cells[id] = cell;
             }
+
         }
 
         public override void BuildVertexBuffer()

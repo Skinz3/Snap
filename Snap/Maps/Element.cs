@@ -1,11 +1,11 @@
 ﻿using SFML.Graphics;
 using SFML.System;
-using Snap.Graphical.Textures;
+using Snap.Textures;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Snap.Graphical.Maps
+namespace Snap.Maps
 {
     public class Element : IDisposable, IDrawable
     {

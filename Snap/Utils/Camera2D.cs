@@ -9,10 +9,10 @@ namespace Snap.Utils
 {
     public class Camera2D
     {
-        private RenderWindow Window
+        protected RenderWindow Window
         {
             get;
-            set;
+            private set;
         }
         private View View
         {

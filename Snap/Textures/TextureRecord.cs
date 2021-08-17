@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Snap.Graphical.Textures
+namespace Snap.Textures
 {
     public class TextureRecord
     {
