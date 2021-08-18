@@ -45,9 +45,7 @@ namespace Snap.Maps
         public void AddElement(LayerEnum layer, Cell cell, TextureRecord textureRecord)
         {
             Vector2f position = cell.Center - new Vector2f(textureRecord.Texture.Size.X / 2, textureRecord.Texture.Size.Y / 2);
-
             Element element = new Element(position, textureRecord, new Vector2f(1, 1));
-
             Layers[layer].AddElement(cell, element);
         }
     }

@@ -92,7 +92,7 @@ public event MouseEvent OnMouseLeftClick;
 
 * Namespace : ``` Snap.Textures.TextureManager ```
 
-* TextureManager is a singleton allowing to manage the textures of all renderers. 
+* TextureManager is a singleton allowing to manage the textures of all renderers. This class works as a cache during program execution. . 
   The class must be initialized when the program is started. The path to the textures must be specified in parameters of the ```TextureManager.Initialize(String path,bool pixelInterpolation = false)``` method. 
 
 * It is possible to retrieve all the textures thanks to the ```TextureManager.FindAll()``` method 
