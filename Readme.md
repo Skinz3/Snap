@@ -59,11 +59,11 @@ public event MouseEvent OnMouseLeftClick;
 ```
 * In order to improve performance, cells are drawn using OpenGL primitives ``` SFML.Graphics.VertexBuffer ```). 
 * These grids can be used to represent worldmaps [Maps](#Maps) and perform path find calculations [Pathfinding](#Pathfinding)
+* There are several methods for performing geometric calculations in order to recover cells according to their relative position, their position on the   world, or even to cast ray in a given direction.  
 
 ## Orthogonal Grid
 
 * Namespace : ```Snap.Grids.GridOrthogonal```
-
 
 * Represents a two-dimensional orthogonal grid. Used to map tiles in a side scroller or top down game. 
 
