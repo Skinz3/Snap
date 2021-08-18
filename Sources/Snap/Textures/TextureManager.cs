@@ -9,25 +9,29 @@ namespace Snap.Textures
     {
         private static readonly Dictionary<string, TextureRecord> Textures = new Dictionary<string, TextureRecord>();
 
-        public static void Initialize(string path)
+        public static bool UsePixelInterpolation;
+
+        public static void Initialize(string path, bool usePixelInterpolation = false)
         {
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
 
+            UsePixelInterpolation = usePixelInterpolation;
+
             foreach (var file in Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories))
             {
                 TextureRecord sprite = new TextureRecord(file);
-                string name =  Path.GetFileNameWithoutExtension(file);
+                string name = Path.GetFileNameWithoutExtension(file);
                 Textures.Add(name, sprite);
             }
         }
-        public static IEnumerable<TextureRecord> GetRecords()
+        public static IEnumerable<TextureRecord> FindAll()
         {
             return Textures.Values;
         }
-        public static TextureRecord GetRecord(string name)
+        public static TextureRecord Get(string name)
         {
             TextureRecord textureRecord = null;
 
@@ -44,6 +48,20 @@ namespace Snap.Textures
 
                 return textureRecord;
             }
+        }
+        public static bool Unload(string name)
+        {
+            if (Textures.ContainsKey(name))
+            {
+                TextureRecord texture = Textures[name];
+
+                if (texture.Loaded)
+                {
+                    texture.Unload();
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
