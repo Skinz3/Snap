@@ -63,7 +63,7 @@ namespace Snap.Paths
         {
             var success = false;
 
-            var matrix = new PathNode[Grid.Size + 1];
+            var matrix = new PathNode[Grid.CellsCount + 1];
             var openList = new PriorityQueueB<int>(new ComparePfNodeMatrix(matrix));
             var closedList = new List<PathNode>();
 
@@ -102,7 +102,7 @@ namespace Snap.Paths
 
                     var newLocation = newLocationCell.Id;
 
-                    if (newLocation < 0 || newLocation >= Grid.Size)
+                    if (newLocation < 0 || newLocation >= Grid.CellsCount)
                         continue;
 
                     if (!this.CellMetaProvider.IsWalkable(newLocationCell))
@@ -150,7 +150,7 @@ namespace Snap.Paths
         public Cell[] FindReachableCells(Cell from, int distance)
         {
             var result = new List<Cell>();
-            var matrix = new PathNode[Grid.Size + 1];
+            var matrix = new PathNode[Grid.CellsCount + 1];
             var openList = new PriorityQueueB<int>(new ComparePfNodeMatrix(matrix));
             var location = from.Id;
             var counter = 0;
@@ -182,7 +182,7 @@ namespace Snap.Paths
 
                     var newLocation = newLocationCell.Id;
 
-                    if (newLocation < 0 || newLocation >= Grid.Size)
+                    if (newLocation < 0 || newLocation >= Grid.CellsCount)
                         continue;
 
                     if (!this.CellMetaProvider.IsWalkable(newLocationCell))

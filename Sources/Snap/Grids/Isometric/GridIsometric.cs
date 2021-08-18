@@ -12,15 +12,15 @@ namespace Snap.Grids.Isometric
 
         private const int CellHeigth = 43;
 
-        public GridIsometric(RenderWindow window, Vector2f position, int width, int height, Color bordersColor, bool optimize = false) :
-            base(window, position, width, height, bordersColor, optimize)
+        public GridIsometric(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, bool optimize = false) :
+            base(window, position, size, bordersColor, optimize)
         {
 
         }
 
-        public override void BuildCells()
+        protected override void BuildCells()
         {
-            this.Cells = new CellIsometric[Width * Heigth * 2];
+            this.Cells = new CellIsometric[CellsCount * 2];
 
             for (int id = 0; id < Cells.Length; id++)
             {
@@ -36,11 +36,11 @@ namespace Snap.Grids.Isometric
             float midCellHeight = cellHeight / 2;
             float midCellWidth = cellWidth / 2;
 
-            for (float y = 0; y < (2 * Heigth); y += 1)
+            for (float y = 0; y < (2 * Size.Y); y += 1)
             {
                 if (y % 2 == 0)
                 {
-                    for (int x = 0; x < Width; x++)
+                    for (int x = 0; x < Size.X; x++)
                     {
                         var left = new Vector2f(offsetX + x * cellWidth, offsetY + y * midCellHeight + midCellHeight);
                         var top = new Vector2f(offsetX + x * cellWidth + midCellWidth, offsetY + y * midCellHeight);
@@ -52,7 +52,7 @@ namespace Snap.Grids.Isometric
                 }
                 else
                 {
-                    for (int x = 0; x < Width; x++)
+                    for (int x = 0; x < Size.X; x++)
                     {
                         var left = new Vector2f(offsetX + x * cellWidth + midCellWidth, offsetY + y * midCellHeight + midCellHeight);
                         var top = new Vector2f(offsetX + x * cellWidth + cellWidth, offsetY + y * midCellHeight);
@@ -66,7 +66,7 @@ namespace Snap.Grids.Isometric
             }
         }
 
-        public override void BuildVertexBuffer()
+        protected override void BuildVertexBuffer()
         {
             const uint verticesPerCells = 8;
 

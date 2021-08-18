@@ -18,16 +18,6 @@ namespace Snap.Grids
         public event MouseEvent OnMouseRightClick;
         public event MouseEvent OnMouseLeftClick;
 
-        public int Width
-        {
-            get;
-            private set;
-        }
-        public int Heigth
-        {
-            get;
-            private set;
-        }
         public Vector2f Position
         {
             get;
@@ -71,23 +61,38 @@ namespace Snap.Grids
             private set;
         }
 
-        public int Size => Width * Heigth;
+        public Vector2i Size
+        {
+            get;
+            private set;
+        }
 
-        public Grid(RenderWindow window, Vector2f position, int width, int height, Color bordersColor, bool optimize = false)
+        public int CellsCount => Size.X * Size.Y;
+        /*
+         * window : The render window where the grid is drawn
+         * position : The position of the screen on the world
+         * size : The relative size of the grid (number of rows and columns)
+         * bordersColor : The color of the cells borders
+         * optimize : see Grid.Optimize.
+         */
+        public Grid(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, bool optimize = false)
         {
             this.Window = window;
             this.Position = position;
-            this.Width = width;
-            this.Heigth = height;
+            this.Size = size;
             this.BordersColor = bordersColor;
+            this.Optimize = optimize;
+        }
+
+        public void Build()
+        {
             this.BuildCells();
             this.BuildVertexBuffer();
-            this.Optimize = optimize;
 
             if (!Optimize)
             {
-                window.MouseButtonPressed += OnMouseButtonPressed;
-                window.MouseMoved += OnMouseMoved;
+                Window.MouseButtonPressed += OnMouseButtonPressed;
+                Window.MouseMoved += OnMouseMoved;
 
                 foreach (var cell in Cells)
                 {
@@ -174,9 +179,9 @@ namespace Snap.Grids
             }
         }
 
-        public abstract void BuildCells();
+        protected abstract void BuildCells();
 
-        public abstract void BuildVertexBuffer();
+        protected abstract void BuildVertexBuffer();
 
         public virtual void Draw(RenderWindow window)
         {
@@ -196,9 +201,9 @@ namespace Snap.Grids
         }
         public bool IsInMap(int x, int y)
         {
-            return x < Width && y < Heigth && x >= 0 && y >= 0;
+            return x < Size.X && y < Size.Y && x >= 0 && y >= 0;
         }
-        public Cell GetCell(int x,int y)
+        public Cell GetCell(int x, int y)
         {
             if (!IsInMap(x, y))
             {
@@ -206,7 +211,7 @@ namespace Snap.Grids
             }
             else
             {
-                return GetCell(x + Width * y);
+                return GetCell(x + Size.X * y);
             }
         }
     }

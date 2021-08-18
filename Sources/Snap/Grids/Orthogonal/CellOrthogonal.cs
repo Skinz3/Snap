@@ -6,11 +6,6 @@ namespace Snap.Grids.Orthogonal
 {
     public class CellOrthogonal : Cell
     {
-        /*
-         * The size of the square, in pixels
-         */
-        public const int Size = 20;
-
         private FloatRect Rectangle
         {
             get;
@@ -27,9 +22,15 @@ namespace Snap.Grids.Orthogonal
             set;
         }
 
-        public CellOrthogonal(int id, int x, int y) : base(id, x, y)
+        private float Size
         {
+            get;
+            set;
+        }
 
+        public CellOrthogonal(int id, int x, int y, float size) : base(id, x, y)
+        {
+            this.Size = size;
         }
 
         public void SetRectangle(FloatRect rectangle)
