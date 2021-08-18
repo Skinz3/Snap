@@ -13,6 +13,7 @@
 
 1. [Renderer](#Renderer)
 2. [Grids](#Grids)
+   [Grids](##OrthogonalGrid)
 3. [Pathfinding](#Pathfinding)
 4. [Textures](#Textures)  
 5. [Maps](#Maps)  
