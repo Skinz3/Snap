@@ -28,7 +28,7 @@
 
 # Renderer
 
-* The Snap.Renderer class encapsulates the render window and how it works. It is an abstract class. Here an example :
+* The Renderer class is a parent node of your game. It manages the render window (or the targeted handle) and the gameloop. This is an abstract class that you need to implement. 
 
 ```csharp
  public class MyRenderer : Renderer
