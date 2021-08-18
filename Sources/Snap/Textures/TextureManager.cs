@@ -23,11 +23,11 @@ namespace Snap.Textures
                 Textures.Add(name, sprite);
             }
         }
-        public static IEnumerable<TextureRecord> GetTextureRecords()
+        public static IEnumerable<TextureRecord> GetRecords()
         {
             return Textures.Values;
         }
-        public static TextureRecord GetTextureRecord(string name)
+        public static TextureRecord GetRecord(string name)
         {
             TextureRecord textureRecord = null;
 
