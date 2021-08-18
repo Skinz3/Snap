@@ -44,7 +44,7 @@
 ```
 
 # Grids
-
+* Grids can be used to represent worldmaps ([Maps](#Maps)) and perform path find calculations ([Pathfinding](#Pathfinding))
 * For each grid, there are events dealing with user inputs. The constructor parameter of Grid handleEvents disables the handling of these events,
   this increases performance on large grids. 
 
@@ -56,7 +56,6 @@ public event MouseEvent OnMouseRightClick;
 public event MouseEvent OnMouseLeftClick;
 ```
 * In order to improve performance, cells are drawn using **OpenGL primitives** (``` SFML.Graphics.VertexBuffer ```). 
-* These grids can be used to represent worldmaps ([Maps](#Maps)) and perform path find calculations ([Pathfinding](#Pathfinding))
 * There are several methods for performing geometric calculations in order to recover cells according to their relative position, their position on the   world, or even to cast ray in a given direction.  
 * In order to use the grids properly, we must call ```Grid.Build()``` after its instantation. 
 
