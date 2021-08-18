@@ -45,7 +45,7 @@ namespace Snap.Grids
 
         public override string ToString()
         {
-            return "Cell (" + Id + ")";
+            return "Cell (" + X + "," + Y + ")";
         }
     }
 }

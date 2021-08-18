@@ -6,41 +6,37 @@ using System.Text;
 
 namespace Snap.Grids.Isometric
 {
-    /*
-     * Todo : Compute cells x & y
-     * Todo : CellWidth & CellHeight should be parameters
-     */
     public class GridIsometric : Grid
     {
         private const int CellWidth = 86;
 
         private const int CellHeigth = 43;
 
-        public GridIsometric(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, bool handleEvents = true) :
+        private float Scale
+        {
+            get;
+            set;
+        }
+        public GridIsometric(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, float scale = 1f, bool handleEvents = true) :
             base(window, position, size, bordersColor, handleEvents)
         {
-
+            this.Scale = scale;
         }
 
         protected override void BuildCells()
         {
             this.Cells = new CellIsometric[CellsCount * 2];
 
-            for (int id = 0; id < Cells.Length; id++)
-            {
-                Cells[id] = new CellIsometric(id, 0, 0); // WIP
-            }
-
             int cellId = 0;
-            float cellWidth = CellWidth;
-            float cellHeight = CellHeigth;
+            float cellWidth = CellWidth * Scale;
+            float cellHeight = CellHeigth * Scale;
             float offsetX = Position.X;
             float offsetY = Position.Y;
 
             float midCellHeight = cellHeight / 2;
             float midCellWidth = cellWidth / 2;
 
-            for (float y = 0; y < (2 * Size.Y); y += 1)
+            for (int y = 0; y < (2 * Size.Y); y += 1)
             {
                 if (y % 2 == 0)
                 {
@@ -50,7 +46,7 @@ namespace Snap.Grids.Isometric
                         var top = new Vector2f(offsetX + x * cellWidth + midCellWidth, offsetY + y * midCellHeight);
                         var right = new Vector2f(offsetX + x * cellWidth + cellWidth, offsetY + y * midCellHeight + midCellHeight);
                         var down = new Vector2f(offsetX + x * cellWidth + midCellWidth, offsetY + y * midCellHeight + cellHeight);
-
+                        Cells[cellId] = new CellIsometric(cellId, x, y);
                         ((CellIsometric)Cells[cellId++]).Points = new[] { left, top, right, down };
                     }
                 }
@@ -62,8 +58,7 @@ namespace Snap.Grids.Isometric
                         var top = new Vector2f(offsetX + x * cellWidth + cellWidth, offsetY + y * midCellHeight);
                         var right = new Vector2f(offsetX + x * cellWidth + cellWidth + midCellWidth, offsetY + y * midCellHeight + midCellHeight);
                         var down = new Vector2f(offsetX + x * cellWidth + cellWidth, offsetY + y * midCellHeight + cellHeight);
-
-
+                        Cells[cellId] = new CellIsometric(cellId, x, y);
                         ((CellIsometric)Cells[cellId++]).Points = new[] { left, top, right, down };
                     }
                 }

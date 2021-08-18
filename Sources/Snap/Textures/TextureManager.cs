@@ -18,14 +18,10 @@ namespace Snap.Textures
 
             foreach (var file in Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories))
             {
-                AddTexture(file);
+                TextureRecord sprite = new TextureRecord(file);
+                string name =  Path.GetFileNameWithoutExtension(file);
+                Textures.Add(name, sprite);
             }
-        }
-        private static void AddTexture(string filePath)
-        {
-            TextureRecord sprite = new TextureRecord(filePath);
-            string name = Path.GetFileNameWithoutExtension(filePath);
-            Textures.Add(name, sprite);
         }
         public static IEnumerable<TextureRecord> GetTextureRecords()
         {
