@@ -64,8 +64,11 @@ public event MouseEvent OnMouseLeftClick;
 
 * Namespace : ```Snap.Grids.GridOrthogonal```
 
+
 * Represents a two-dimensional orthogonal grid. Used to map tiles in a side scroller or top down game. 
 
+* In order to use the grids properly, we must call ```Grid.Build()``` after its instantation. 
+ 
 ![](Misc/orth.png)
 
 ## Isometric Grid
