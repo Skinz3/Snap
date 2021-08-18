@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Snap.Grids.Isometric
 {
+    /*
+     * Todo : Compute cells x & y
+     */
     public class GridIsometric : Grid
     {
         private const int CellWidth = 86;
