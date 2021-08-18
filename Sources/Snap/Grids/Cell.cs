@@ -8,8 +8,6 @@ namespace Snap.Grids
 {
     public abstract class Cell
     {
-        private static Color BorderColor = new Color(0, 0, 0, 50);
-
         public int Id
         {
             get;

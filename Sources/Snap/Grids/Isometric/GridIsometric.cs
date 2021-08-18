@@ -8,6 +8,7 @@ namespace Snap.Grids.Isometric
 {
     /*
      * Todo : Compute cells x & y
+     * Todo : CellWidth & CellHeight should be parameters
      */
     public class GridIsometric : Grid
     {

@@ -72,7 +72,6 @@ namespace Snap.Grids
          * position : The position of the screen on the world
          * size : The relative size of the grid (number of rows and columns)
          * bordersColor : The color of the cells borders
-         * optimize : see Grid.Optimize.
          */
         public Grid(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, bool handleEvents = false)
         {
