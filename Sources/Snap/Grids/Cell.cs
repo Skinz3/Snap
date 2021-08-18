@@ -26,12 +26,6 @@ namespace Snap.Grids
             get;
         }
 
-        public abstract Shape Shape
-        {
-            get;
-            set;
-        }
-
         public int X
         {
             get;
@@ -49,19 +43,11 @@ namespace Snap.Grids
             this.Y = y;
         }
 
-        public abstract void BuildShape();
-
         public abstract bool Contains(Vector2f position);
 
         public override string ToString()
         {
             return "Cell (" + Id + ")";
         }
-
-        public void DrawShape(RenderWindow window)
-        {
-            window.Draw(Shape, RenderStates.Default);
-        }
-
     }
 }

@@ -12,14 +12,7 @@ namespace Snap.Grids.Isometric
 
         public override Vector2f Position => Points[0];
 
-
         public Vector2f[] Points
-        {
-            get;
-            set;
-        }
-
-        public override Shape Shape
         {
             get;
             set;
@@ -75,21 +68,6 @@ namespace Snap.Grids.Isometric
                 yold = ynew;
             }
             return inside;
-        }
-
-        public override void BuildShape()
-        {
-            ConvexShape shape = new ConvexShape(4);
-            shape.FillColor = Color.Transparent;
-            shape.OutlineThickness = 1f;
-            shape.OutlineColor = new Color(0, 0, 0, 50);
-
-            for (uint i = 0; i < Points.Length; i++)
-            {
-                shape.SetPoint(i, Points[i]);
-            }
-
-            this.Shape = shape;
         }
     }
 }

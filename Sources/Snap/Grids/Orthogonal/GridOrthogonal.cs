@@ -30,7 +30,7 @@ namespace Snap.Grids.Orthogonal
                 int y = (id - x) / Size.X;
 
                 Vector2f position = new Vector2f((x * CellSize) + Position.X, (y * CellSize) + Position.Y);
-                CellOrthogonal cell = new CellOrthogonal(id, x, y, CellSize);
+                CellOrthogonal cell = new CellOrthogonal(id, x, y);
                 cell.SetRectangle(new FloatRect(position.X, position.Y, CellSize, CellSize));
                 Cells[id] = cell;
             }

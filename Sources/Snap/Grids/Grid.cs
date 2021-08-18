@@ -31,10 +31,9 @@ namespace Snap.Grids
         /*
          * No event will be triggered if Optimize is set to false. 
          * (OnMouseOverCell etc ..). 
-         * No SFML shape will be drawn (only primitives)
          * Disabling it improves performance on large grids. 
          */
-        private bool Optimize
+        private bool HandleEvents
         {
             get;
             set;
@@ -75,13 +74,13 @@ namespace Snap.Grids
          * bordersColor : The color of the cells borders
          * optimize : see Grid.Optimize.
          */
-        public Grid(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, bool optimize = false)
+        public Grid(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, bool handleEvents = false)
         {
             this.Window = window;
             this.Position = position;
             this.Size = size;
             this.BordersColor = bordersColor;
-            this.Optimize = optimize;
+            this.HandleEvents = handleEvents;
         }
 
         public void Build()
@@ -89,15 +88,10 @@ namespace Snap.Grids
             this.BuildCells();
             this.BuildVertexBuffer();
 
-            if (!Optimize)
+            if (HandleEvents)
             {
                 Window.MouseButtonPressed += OnMouseButtonPressed;
                 Window.MouseMoved += OnMouseMoved;
-
-                foreach (var cell in Cells)
-                {
-                    cell.BuildShape();
-                }
             }
         }
 
@@ -185,14 +179,6 @@ namespace Snap.Grids
 
         public virtual void Draw(RenderWindow window)
         {
-            if (!Optimize)
-            {
-                foreach (var cell in Cells)
-                {
-                    cell.DrawShape(window);
-                }
-            }
-
             GridBuffer.Draw(window, RenderStates.Default);
         }
         public Cell GetCell(int id)

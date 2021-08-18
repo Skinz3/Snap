@@ -36,7 +36,7 @@ namespace Snap.Example
 
         public MyRenderer(VideoMode mode, string title, ContextSettings settings, Styles styles = Styles.Default) : base(mode, title, settings, styles)
         {
-            var grid = new GridOrthogonal(Window, new Vector2f(100, 100), new Vector2i(10, 10), Color.Black, 50, false);
+            var grid = new GridIsometric(Window, new Vector2f(100, 100), new Vector2i(10, 10), Color.Black, false);
             grid.Build();
 
             this.Map = new Map(grid);
@@ -60,15 +60,6 @@ namespace Snap.Example
             var end = target;
 
             var path = Pathfinder.FindPath(start, end, true);
-
-            foreach (var cell in Map.Grid.Cells)
-            {
-                cell.Shape.FillColor = Color.Transparent;
-            }
-            foreach (var cell in path)
-            {
-                cell.Shape.FillColor = Color.Blue;
-            }
         }
 
         protected override void Draw()
