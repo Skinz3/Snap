@@ -15,7 +15,7 @@
 2. [Grids](#Grids)
 3. [Pathfinding](#Pathfinding)
 4. [Textures](#Textures)  
-5. [Map](#Map)  
+5. [Maps](#Maps)  
 6. [Animations](#Animations)
 7. [Fonts](#Fonts)
 8. [Lightning](#Lightnings)
@@ -87,6 +87,14 @@ public event MouseEvent OnMouseLeftClick;
 
 * This pathfinding algorithm assumes that there are eight possible cell-to-cell directions. This parameter can be reduced to 4 depending on the ```diagonal``` parameter of the ``` Pathfinder.FindPath()``` method.
 
+# Textures
+
+  > WIP
+
+# Maps
+
+  > WIP
+  
 # Utils
 
 ## Camera2D
