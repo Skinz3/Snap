@@ -29,7 +29,7 @@ namespace Snap.Grids
             set;
         }
         /*
-         * No event will be triggered if Optimize is set to false. 
+         * No event will be triggered if HandleEvents is set to false. 
          * (OnMouseOverCell etc ..). 
          * Disabling it improves performance on large grids. 
          */
@@ -73,7 +73,7 @@ namespace Snap.Grids
          * size : The relative size of the grid (number of rows and columns)
          * bordersColor : The color of the cells borders
          */
-        public Grid(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, bool handleEvents = false)
+        public Grid(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, bool handleEvents = true)
         {
             this.Window = window;
             this.Position = position;

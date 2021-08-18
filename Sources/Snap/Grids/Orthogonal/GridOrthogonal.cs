@@ -14,8 +14,8 @@ namespace Snap.Grids.Orthogonal
             get;
             set;
         }
-        public GridOrthogonal(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, int cellSize, bool optimize = false) :
-            base(window, position, size, bordersColor, optimize)
+        public GridOrthogonal(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, int cellSize, bool handleEvents = true) :
+            base(window, position, size, bordersColor, handleEvents)
         {
             this.CellSize = cellSize;
         }

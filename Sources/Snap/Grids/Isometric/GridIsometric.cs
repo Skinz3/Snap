@@ -16,8 +16,8 @@ namespace Snap.Grids.Isometric
 
         private const int CellHeigth = 43;
 
-        public GridIsometric(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, bool optimize = false) :
-            base(window, position, size, bordersColor, optimize)
+        public GridIsometric(RenderWindow window, Vector2f position, Vector2i size, Color bordersColor, bool handleEvents = true) :
+            base(window, position, size, bordersColor, handleEvents)
         {
 
         }
