@@ -2,8 +2,6 @@
   <img src="Misc/logo.png" />
 </p>
 
-
-
 # Hi there
 
   Snap is a game engine on top of SFML.NET proving a lot of utility and an architectural proposal to make a 2D game.
@@ -60,14 +58,13 @@ public event MouseEvent OnMouseLeftClick;
 * In order to improve performance, cells are drawn using **OpenGL primitives** (``` SFML.Graphics.VertexBuffer ```). 
 * These grids can be used to represent worldmaps ([Maps](#Maps)) and perform path find calculations ([Pathfinding](#Pathfinding))
 * There are several methods for performing geometric calculations in order to recover cells according to their relative position, their position on the   world, or even to cast ray in a given direction.  
+* In order to use the grids properly, we must call ```Grid.Build()``` after its instantation. 
 
 ## Orthogonal Grid
 
 * Namespace : ```Snap.Grids.GridOrthogonal```
 
 * Represents a two-dimensional orthogonal grid. Used to map tiles in a side scroller or top down game. 
-
-* In order to use the grids properly, we must call ```Grid.Build()``` after its instantation. 
  
 ![](Misc/orth.png)
 
