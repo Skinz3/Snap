@@ -58,7 +58,7 @@ public event MouseEvent OnMouseRightClick;
 public event MouseEvent OnMouseLeftClick;
 ```
 * In order to improve performance, cells are drawn using OpenGL primitives. 
-* These grids can be used to represent worldmaps (#Maps) and perform path find calculations (#Pathfinding) 
+* These grids can be used to represent worldmaps [Maps](#Maps) and perform path find calculations [Pathfinding](#Pathfinding)
 
 ## Orthogonal Grid
 
