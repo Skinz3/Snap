@@ -114,8 +114,6 @@ public event MouseEvent OnMouseLeftClick;
   <img src="Misc/map.png" />
 </p>
 
-<center>Here is an exemple of an orthogonal map</center>
-
 
 # Utils
 
