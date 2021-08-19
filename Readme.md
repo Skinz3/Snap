@@ -98,9 +98,6 @@ public event MouseEvent OnMouseLeftClick;
 * It is possible to retrieve all the textures thanks to the ```TextureManager.FindAll()``` method 
 * The ```TextureManager.GetRecord(String name)``` function loads a texture into memory if it has not been loaded and returns the result. It is also possible to unload it using the ```TextureManager.Unload(String name)``` function.
 
-![](Misc/map.png)
-
-* Here is an example of an orthogonal map.
 
 # Maps
 
@@ -112,7 +109,13 @@ public event MouseEvent OnMouseLeftClick;
 
   * It is possible to add a tile to the map using the ```Map.AddElement(LayerEnum layer, Cell cell, ElementRecord element)``` method. 
     The element is automatically placed in the center of the cell but will not be resized. You can perform resizing operations beforehand on the affected sprites.  
+  
+  <p align="center">
+  <img src="Misc/map.png" />
+</p>
 
+  * Here is an example of an orthogonal map.
+  
 # Utils
 
 ## Camera2D
