@@ -110,10 +110,6 @@ public event MouseEvent OnMouseLeftClick;
   * It is possible to add a tile to the map using the ```Map.AddElement(LayerEnum layer, Cell cell, ElementRecord element)``` method. 
     The element is automatically placed in the center of the cell but will not be resized. You can perform resizing operations beforehand on the affected sprites.  
   
-  <p align="center">
-  <img src="Misc/map.png" />
-</p>
-
 
 # Utils
 
