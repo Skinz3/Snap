@@ -114,8 +114,9 @@ public event MouseEvent OnMouseLeftClick;
   <img src="Misc/map.png" />
 </p>
 
-  * Here is an example of an orthogonal map.
-  
+<center>Here is an exemple of an orthogonal map</center>
+
+
 # Utils
 
 ## Camera2D
