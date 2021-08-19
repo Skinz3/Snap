@@ -1,12 +1,13 @@
 ﻿using SFML.Graphics;
 using SFML.System;
+using Snap.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Snap.Grids
 {
-    public abstract class Cell
+    public abstract class Cell 
     {
         public int Id
         {

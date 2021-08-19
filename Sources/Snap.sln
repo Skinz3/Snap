@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snap", "Snap\Snap.csproj", "{A019307F-35E8-4000-AFAA-99108D28514D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snap.Example", "Snap.Example\Snap.Example.csproj", "{2D68DD66-6551-4793-8915-2C99AFA0E2C7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{A019307F-35E8-4000-AFAA-99108D28514D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A019307F-35E8-4000-AFAA-99108D28514D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A019307F-35E8-4000-AFAA-99108D28514D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D68DD66-6551-4793-8915-2C99AFA0E2C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D68DD66-6551-4793-8915-2C99AFA0E2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D68DD66-6551-4793-8915-2C99AFA0E2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D68DD66-6551-4793-8915-2C99AFA0E2C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
