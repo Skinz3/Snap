@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Snap.Utils
+namespace Snap.Utils.Cameras
 {
     public class Camera2D
     {
@@ -14,10 +14,10 @@ namespace Snap.Utils
             get;
             private set;
         }
-        private View View
+        public View View
         {
             get;
-            set;
+            private set;
         }
         public Camera2D(RenderWindow window)
         {

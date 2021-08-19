@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Snap.Utils
+namespace Snap.Utils.Cameras
 {
     public class KeyboardCamera : Camera2D
     {

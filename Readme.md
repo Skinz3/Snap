@@ -113,11 +113,15 @@ public event MouseEvent OnMouseLeftClick;
 
 ## Camera2D
 
-* Camera2D is what you need if you want to scroll, rotate or zoom your world. They are also the key to creating split screens and mini-maps.
-  you can use ``` Move(Vector2f delta) ``` to move the camera. 
+  * Namespace : ``` Snap.Utils.Cameras.Camera2D ```
+  * Camera2D is what you need if you want to scroll, rotate or zoom your world. They are also the key to creating split screens and mini-maps.
+  you can use ``` Camera2D.Move(Vector2f delta) ``` to move the camera and ``` Camera2D.Zoom(float delta) ``` to zoom.
 
-  > WIP
+  * The ```View``` (SFML) field is public and allows you to perform additional calculations if necessary. 
+
 
 ## KeyboardCamera
 
-  > WIP
+  * Namespace : ``` Snap.Utils.Cameras.KeyboardCamera ```
+
+  * KeyboardCamera is an extension of Camera2D. It allows you to quickly map keys to camera movements. the mapping can be defined using the ``` KeyboardCamera.KeysMapping```  field.
