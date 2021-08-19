@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Snap.Core.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -37,7 +38,7 @@ namespace Snap.Textures
 
             if (!Textures.TryGetValue(name, out textureRecord))
             {
-                return null;
+                throw new TextureNotFoundException(name);
             }
             else
             {

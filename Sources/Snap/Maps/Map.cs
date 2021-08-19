@@ -1,9 +1,11 @@
 ﻿using SFML.Graphics;
 using SFML.System;
+using Snap.Core.Serialization;
 using Snap.Grids;
 using Snap.Textures;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Snap.Maps
@@ -34,16 +36,24 @@ namespace Snap.Maps
 
         public void Draw(RenderWindow window)
         {
-            Grid.Draw(window);
-
             foreach (var layer in Layers.Values)
             {
                 layer.Draw(window);
             }
+
+            Grid.Draw(window);
         }
 
         public void AddElement(LayerEnum layer, Cell cell, TextureRecord textureRecord)
         {
+            Vector2f position = cell.Center - new Vector2f(textureRecord.Texture.Size.X / 2, textureRecord.Texture.Size.Y / 2);
+            Element element = new Element(position, textureRecord, new Vector2f(1, 1));
+            Layers[layer].AddElement(cell, element);
+        }
+        public void AddElement(LayerEnum layer, int cellId, string textureName)
+        {
+            var textureRecord = TextureManager.Get(textureName);
+            var cell = Grid.GetCell(cellId);
             Vector2f position = cell.Center - new Vector2f(textureRecord.Texture.Size.X / 2, textureRecord.Texture.Size.Y / 2);
             Element element = new Element(position, textureRecord, new Vector2f(1, 1));
             Layers[layer].AddElement(cell, element);

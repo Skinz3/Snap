@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snap", "Snap\Snap.csproj", "{A019307F-35E8-4000-AFAA-99108D28514D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snap.SceneEditor", "Snap.SceneEditor\Snap.SceneEditor.csproj", "{32266BAD-4212-448B-AA77-88F1386465BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snap.Example", "Snap.Example\Snap.Example.csproj", "{C114E308-CCCF-45F5-99C9-45930DD9D820}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{A019307F-35E8-4000-AFAA-99108D28514D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A019307F-35E8-4000-AFAA-99108D28514D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A019307F-35E8-4000-AFAA-99108D28514D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32266BAD-4212-448B-AA77-88F1386465BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32266BAD-4212-448B-AA77-88F1386465BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32266BAD-4212-448B-AA77-88F1386465BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32266BAD-4212-448B-AA77-88F1386465BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C114E308-CCCF-45F5-99C9-45930DD9D820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C114E308-CCCF-45F5-99C9-45930DD9D820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C114E308-CCCF-45F5-99C9-45930DD9D820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C114E308-CCCF-45F5-99C9-45930DD9D820}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
