@@ -100,7 +100,14 @@ public event MouseEvent OnMouseLeftClick;
 
 # Maps
 
-  > WIP
+  * Namespace : ```Snap.Maps.Map ```
+
+  * As the name suggests, Maps are a way to map tiles onto a grid. 
+  * In Snap, a map is built from a grid. (Isometric or Orthogonal) and is divided into several layers. 
+    The layers drawn one on top of the other. ```LayerEnum``` is used to enumerate them. It is possible to add up to 8 layers to a 2D map. 
+
+  * It is possible to add a tile to the map using the ```Map.AddElement(LayerEnum layer, Cell cell, ElementRecord element)``` method. 
+    The element is automatically placed in the center of the cell but will not be resized. You can perform resizing operations beforehand on the affected sprites.  
 
 # Utils
 
