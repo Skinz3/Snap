@@ -127,3 +127,9 @@ public event MouseEvent OnMouseLeftClick;
   * Namespace : ``` Snap.Utils.Cameras.KeyboardCamera ```
 
   * KeyboardCamera is an extension of Camera2D. It allows you to quickly map keys to camera movements. the mapping can be defined using the ``` KeyboardCamera.KeysMapping```  field.
+
+## FPSCounter
+
+  * Namespace :  ``` Snap.Utils.FpsCounter ```
+
+  * FPSCounter simply allows you to count the number of frames per second for the current execution. ```The FpsCounter.Update()``` function must be called at each frame and the result can be accessed via the ```FpsCounter.FPS``` field. 
