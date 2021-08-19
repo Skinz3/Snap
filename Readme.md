@@ -5,7 +5,7 @@
 # Hi there
 
   Snap is a game engine on top of SFML.NET proving a lot of utility and an architectural proposal to make a 2D game.
-  Written in C# .NET Core 3.1, this library is multiplateform. 
+  Written in C# .NET Core 3.1, this library is multiplatform. 
 
   ![](https://www.repostatus.org/badges/latest/wip.svg)
 
