@@ -98,6 +98,10 @@ public event MouseEvent OnMouseLeftClick;
 * It is possible to retrieve all the textures thanks to the ```TextureManager.FindAll()``` method 
 * The ```TextureManager.GetRecord(String name)``` function loads a texture into memory if it has not been loaded and returns the result. It is also possible to unload it using the ```TextureManager.Unload(String name)``` function.
 
+![](Misc/map.png)
+
+* Here is an example of an orthogonal map.
+
 # Maps
 
   * Namespace : ```Snap.Maps.Map ```
