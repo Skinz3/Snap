@@ -63,13 +63,12 @@ namespace Snap
                 DestroyScene();
             }
 
-
             this.Scene = scene;
             this.Scene.OnCreate(this);
         }
         public void DestroyScene()
         {
-            this.Scene.OnDestroy(this);
+            this.Scene?.OnDestroy(this);
             this.Scene = null;
         }
         public T GetScene<T>() where T : Scene

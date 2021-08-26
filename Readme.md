@@ -35,15 +35,18 @@ In the nuget package manager, run the command ```Install-Package SFML.Net -Versi
 * Create an entry point for your program and initialize the content in the desired directories :
 
 ```csharp
-static void Main(string[] args)
+ static void Main(string[] args)
 {
     FontManager.Initialize("Fonts/");
     TextureManager.Initialize("Sprites/");
 
     VideoMode mode = new VideoMode(1920, 1080);
-    MyGameWindow window = new MyGameWindow(mode, "MyWindow");
-    window.Open();
 
+    GameWindow window = new GameWindow(mode, "MyWindow");
+        
+    window.SetScene(new MyScene());
+
+    window.Open();
 }
 ```
 
