@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Snap
 {
-    public abstract class Renderer
+    public abstract class GameWindow
     {
         public RenderWindow Window
         {
@@ -17,12 +17,19 @@ namespace Snap
 
         public virtual Color ClearColor => Color.White;
 
-        public Renderer(VideoMode mode, string title, ContextSettings settings, Styles styles = Styles.Default)
+        public GameWindow(VideoMode mode, string title, ContextSettings? settings = null, Styles styles = Styles.Default)
         {
-            this.Window = new RenderWindow(mode, title, styles, settings);
+            if (settings.HasValue)
+            {
+                this.Window = new RenderWindow(mode, title, styles, settings.Value);
+            }
+            else
+            {
+                this.Window = new RenderWindow(mode, title, styles);
+            }
         }
 
-        public void Display()
+        public void Open()
         {
             Window.SetActive();
 

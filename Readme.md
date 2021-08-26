@@ -9,7 +9,8 @@
 
   ![](https://www.repostatus.org/badges/latest/wip.svg)
 
-1. [Renderer](#Renderer)
+0. [Setup](#Setup)
+1. [GameWindow](#Game Window)
 2. [Grids](#Grids)
 3. [Pathfinding](#Pathfinding)
 4. [Textures](#Textures)  
@@ -25,14 +26,34 @@
 14. [Utils](#Utils)
 15. [GUI](#GUI)
 
-# Renderer
+# Setup
 
-* The Renderer class is a parent node of your game. It manages the render window (or the targeted handle) and the gameloop. This is an abstract class that you need to implement. 
+* Start by creating a console project in .Net Core.
+In the nuget package manager, run the command ```Install-Package SFML.Net -Version 2.5.0```
+
+* Create an entry point for your program and initialize the content in the desired directories :
 
 ```csharp
- public class MyRenderer : Renderer
+static void Main(string[] args)
+{
+    FontManager.Initialize("Fonts/");
+    TextureManager.Initialize("Sprites/");
+
+    VideoMode mode = new VideoMode(1920, 1080);
+    MyGameWindow window = new MyGameWindow(mode, "MyWindow");
+    window.Open();
+
+}
+```
+
+# GameWindow
+
+* The GameWindow class is a parent node of your game. It manages the render window (or the targeted handle) and the gameloop. This is an abstract class that you need to implement. 
+
+```csharp
+ public class MyGameWindow : GameWindow
     {
-        public MyRenderer(VideoMode mode, string title, ContextSettings settings, Styles styles = Styles.Default) : base(mode, title, settings, styles)
+        public MyGameWindow(VideoMode mode, string title, ContextSettings settings, Styles styles = Styles.Default) : base(mode, title, settings, styles)
         {
             // Create your ressources here
         }
