@@ -11,6 +11,7 @@
 
 0. [Setup](#Setup)
 1. [GameWindow](#GameWindow)
+2. [Scenes](#Scenes)
 2. [Grids](#Grids)
 3. [Pathfinding](#Pathfinding)
 4. [Textures](#Textures)  
