@@ -32,7 +32,7 @@ namespace Snap.GUI.Widgets
             this.Text.Position = Position;
         }
 
-        public override void Draw(RenderWindow window)
+        public override void Draw(GameWindow window)
         {
 
             window.Draw(Rectangle);

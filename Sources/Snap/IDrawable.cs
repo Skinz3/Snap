@@ -8,6 +8,6 @@ namespace Snap
 {
     public interface IDrawable
     {
-        void Draw(RenderWindow window);
+        void Draw(GameWindow window);
     }
 }

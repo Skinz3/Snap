@@ -44,6 +44,9 @@ namespace Snap.Grids
             get;
             protected set;
         }
+
+        public bool Built => Cells != null;
+
         public Color BordersColor
         {
             get;
@@ -176,7 +179,7 @@ namespace Snap.Grids
 
         protected abstract void BuildVertexBuffer();
 
-        public virtual void Draw(RenderWindow window)
+        public virtual void Draw(GameWindow window)
         {
             GridBuffer.Draw(window, RenderStates.Default);
         }

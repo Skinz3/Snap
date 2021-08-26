@@ -13,6 +13,6 @@ namespace Snap.GUI.Widgets
             get;
         }
 
-        public abstract void Draw(RenderWindow window);
+        public abstract void Draw(GameWindow window);
     }
 }

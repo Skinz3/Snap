@@ -19,7 +19,7 @@ namespace Snap.Maps
         {
             this.Elements = new SortedDictionary<Cell, Element>();
         }
-        public void Draw(RenderWindow window)
+        public void Draw(GameWindow window)
         {
             foreach (var element in Elements.Values)
             {

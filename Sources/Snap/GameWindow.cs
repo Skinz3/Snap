@@ -1,58 +1,88 @@
 ﻿using SFML.Graphics;
-using SFML.System;
 using SFML.Window;
+using Snap.Scenes;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Snap
 {
-    public abstract class GameWindow
+    public class GameWindow : RenderWindow
     {
-        public RenderWindow Window
+        public Color ClearColor
         {
             get;
-            private set;
+            set;
+        } = Color.White;
+
+        private Scene Scene
+        {
+            get;
+            set;
+        }
+        public GameWindow(IntPtr handle) : base(handle)
+        {
         }
 
-        public virtual Color ClearColor => Color.White;
-
-        public GameWindow(VideoMode mode, string title, ContextSettings? settings = null, Styles styles = Styles.Default)
+        public GameWindow(VideoMode mode, string title) : base(mode, title)
         {
-            if (settings.HasValue)
-            {
-                this.Window = new RenderWindow(mode, title, styles, settings.Value);
-            }
-            else
-            {
-                this.Window = new RenderWindow(mode, title, styles);
-            }
+        }
+
+        public GameWindow(IntPtr handle, ContextSettings settings) : base(handle, settings)
+        {
+        }
+
+        public GameWindow(VideoMode mode, string title, Styles style) : base(mode, title, style)
+        {
+        }
+
+        public GameWindow(VideoMode mode, string title, Styles style, ContextSettings settings) : base(mode, title, style, settings)
+        {
         }
 
         public void Open()
         {
-            Window.SetActive();
+            SetActive();
 
-            Window.Closed += ((object sender, EventArgs e) =>
-            {
-                Window.Close();
-            });
+            Closed += ((object sender, EventArgs e) =>
+             {
+                 DestroyScene();
+                 Close();
+             });
 
-            while (Window.IsOpen)
+            while (IsOpen)
             {
                 Loop();
             }
         }
 
-        private void Loop()
+        public void SetScene(Scene scene)
         {
-            Window.Clear(ClearColor);
-            Window.DispatchEvents();
-            Draw();
-            Window.Display();
+            if (Scene != null)
+            {
+                DestroyScene();
+            }
+
+
+            this.Scene = scene;
+            this.Scene.OnCreate(this);
+        }
+        public void DestroyScene()
+        {
+            this.Scene.OnDestroy(this);
+            this.Scene = null;
+        }
+        public T GetScene<T>() where T : Scene
+        {
+            return (T)Scene;
         }
 
-        protected abstract void Draw();
-
+        private void Loop()
+        {
+            Clear(ClearColor);
+            DispatchEvents();
+            Scene?.Draw(this);
+            Display();
+        }
     }
 }

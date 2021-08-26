@@ -26,6 +26,12 @@ namespace Snap.Maps
         public Map(Grid grid)
         {
             this.Grid = grid;
+
+            if (!Grid.Built)
+            {
+                Grid.Build();
+            }
+
             this.Layers = new Dictionary<LayerEnum, Layer>();
 
             foreach (LayerEnum value in Enum.GetValues(typeof(LayerEnum)))
@@ -34,7 +40,7 @@ namespace Snap.Maps
             }
         }
 
-        public void Draw(RenderWindow window)
+        public void Draw(GameWindow window)
         {
             foreach (var layer in Layers.Values)
             {

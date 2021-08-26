@@ -46,7 +46,7 @@ namespace Snap.Maps
             Sprite.Dispose();
         }
 
-        public void Draw(RenderWindow window)
+        public void Draw(GameWindow window)
         {
             window.Draw(Sprite);
         }
