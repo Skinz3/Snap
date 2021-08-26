@@ -12,11 +12,6 @@ namespace Snap.Utils
             get;
             private set;
         }
-        private float LastTime
-        {
-            get;
-            set;
-        }
         private Clock Clock
         {
             get;
@@ -29,9 +24,7 @@ namespace Snap.Utils
 
         public void Update()
         {
-            float currentTime = Clock.Restart().AsSeconds();
-            this.FPS = 1.0f / (currentTime - LastTime);
-            LastTime = currentTime;
+            this.FPS = 1.0f / Clock.Restart().AsSeconds();
             this.Clock.Restart();
         }
     }

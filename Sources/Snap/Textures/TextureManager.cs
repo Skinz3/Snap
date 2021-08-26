@@ -38,7 +38,7 @@ namespace Snap.Textures
 
             if (!Textures.TryGetValue(name, out textureRecord))
             {
-                throw new TextureNotFoundException(name);
+                throw new ElementNotFoundException("Texture", name);
             }
             else
             {

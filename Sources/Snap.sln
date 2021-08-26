@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snap", "Snap\Snap.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snap.Example", "Snap.Example\Snap.Example.csproj", "{C114E308-CCCF-45F5-99C9-45930DD9D820}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snap.GUI", "Snap.GUI\Snap.GUI.csproj", "{EE0BA821-ACA3-4CF6-914E-BD2010DCEC72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C114E308-CCCF-45F5-99C9-45930DD9D820}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C114E308-CCCF-45F5-99C9-45930DD9D820}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C114E308-CCCF-45F5-99C9-45930DD9D820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE0BA821-ACA3-4CF6-914E-BD2010DCEC72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE0BA821-ACA3-4CF6-914E-BD2010DCEC72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE0BA821-ACA3-4CF6-914E-BD2010DCEC72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE0BA821-ACA3-4CF6-914E-BD2010DCEC72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
