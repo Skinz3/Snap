@@ -24,6 +24,7 @@
 12. [Sounds](#Sounds)
 13. [Serialization](#Serialization)
 14. [Utils](#Utils)
+15. [Extensions](#Extensions)
 15. [GUI](#GUI)
 
 # Setup
@@ -155,3 +156,4 @@ public event MouseEvent OnMouseLeftClick;
   * Namespace :  ``` Snap.Utils.FpsCounter ```
 
   * FPSCounter simply allows you to count the number of frames per second for the current execution. ```The FpsCounter.Update()``` function must be called at each frame and the result can be accessed via the ```FpsCounter.FPS``` field. 
+
