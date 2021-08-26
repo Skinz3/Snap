@@ -10,7 +10,7 @@
   ![](https://www.repostatus.org/badges/latest/wip.svg)
 
 0. [Setup](#Setup)
-1. [GameWindow](#Game Window)
+1. [GameWindow](#GameWindow)
 2. [Grids](#Grids)
 3. [Pathfinding](#Pathfinding)
 4. [Textures](#Textures)  
