@@ -23,6 +23,7 @@
 12. [Sounds](#Sounds)
 13. [Serialization](#Serialization)
 14. [Utils](#Utils)
+15. [GUI](#GUI)
 
 # Renderer
 
