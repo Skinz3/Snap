@@ -66,9 +66,9 @@ public abstract void OnCreate(GameWindow window);
 public abstract void OnDestroy(GameWindow window);
 ```
 
-* The Draw() method allows you to draw your objects. It is called at each frame. 
-* The OnCreate() method is called when the scene is associated with a window. All objects must be instantiated here.
-* The OnDestroy() method is called in two situations: either when the scene is replaced by another scene, or when window is closed. Properly free the resources it contains if necessary. 
+* The ```Draw()``` method allows you to draw your objects. It is called at each frame. 
+* The ```OnCreate()``` method is called when the scene is associated with a window. All objects must be instantiated here.
+* The ```OnDestroy()``` method is called in two situations: either when the scene is replaced by another scene, or when window is closed. Properly free the resources it contains if necessary. 
 
 
 # Grids
