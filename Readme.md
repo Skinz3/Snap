@@ -31,7 +31,7 @@
 # Setup
 
 * Start by creating a console project in .Net Core.
-In the nuget package manager, run the command :
+* In the nuget package manager, run the command :
 ```Install-Package SFML.Net -Version 2.5.0```
 
 * Add Snap as a reference of the project (no nuget distribution for now)
