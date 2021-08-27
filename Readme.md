@@ -52,7 +52,7 @@ In the nuget package manager, run the command :
     window.Open();
 }
 ```
-Alright ! Your project is ready 😊
+> Alright ! Your project is ready 😊
 
 # GameWindow
 
