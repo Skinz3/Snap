@@ -33,6 +33,7 @@
 * Start by creating a console project in .Net Core.
 In the nuget package manager, run the command ```Install-Package SFML.Net -Version 2.5.0```
 
+* Add Snap as a reference of the project (no nuget distribution for now)
 * Create an entry point for your program and initialize the content in the desired directories :
 
 ```csharp
@@ -42,7 +43,7 @@ In the nuget package manager, run the command ```Install-Package SFML.Net -Versi
     TextureManager.Initialize("Sprites/");
 
     VideoMode mode = new VideoMode(1920, 1080);
-
+  
     GameWindow window = new GameWindow(mode, "MyWindow");
         
     window.SetScene(new MyScene());
@@ -53,22 +54,18 @@ In the nuget package manager, run the command ```Install-Package SFML.Net -Versi
 
 # GameWindow
 
-* The GameWindow class is a parent node of your game. It manages the render window (or the targeted handle) and the gameloop. This is an abstract class that you need to implement. 
+* The GameWindow class is a parent node of your game. It manages the render window (or the targeted handle) and the gameloop. GameWindow is derived from the ```SFML.Graphics.RenderWindow``` class. Game window does not have any direct drawable objects. However, it contains a current scene whose role is described in the section below. 
+
+# Scene
+
+* A scene represents a set of drawable object. It can represent a level, a menu, or any type of context in a 2D game. This is an abstract class, so you will need to implement it. 
 
 ```csharp
- public class MyGameWindow : GameWindow
-    {
-        public MyGameWindow(VideoMode mode, string title, ContextSettings settings, Styles styles = Styles.Default) : base(mode, title, settings, styles)
-        {
-            // Create your ressources here
-        }
-
-        protected override void Draw()
-        {
-            // Draw your ressources here
-        }
-    }
+public abstract void Draw(GameWindow window); 
+public abstract void OnCreate(GameWindow window);
+public abstract void OnDestroy(GameWindow window);
 ```
+
 
 # Grids
 * Grids can be used to represent worldmaps ([Maps](#Maps)) and perform path find calculations ([Pathfinding](#Pathfinding))
