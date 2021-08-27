@@ -39,7 +39,7 @@
 * Create an entry point for your program and initialize the content in the desired directories :
 
 ```csharp
- static void Main(string[] args)
+static void Main(string[] args)
 {
     FontManager.Initialize("Fonts/");
     TextureManager.Initialize("Sprites/");
