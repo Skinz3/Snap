@@ -31,7 +31,8 @@
 # Setup
 
 * Start by creating a console project in .Net Core.
-In the nuget package manager, run the command ```Install-Package SFML.Net -Version 2.5.0```
+In the nuget package manager, run the command :
+```Install-Package SFML.Net -Version 2.5.0```
 
 * Add Snap as a reference of the project (no nuget distribution for now)
 * Create an entry point for your program and initialize the content in the desired directories :
@@ -51,6 +52,7 @@ In the nuget package manager, run the command ```Install-Package SFML.Net -Versi
     window.Open();
 }
 ```
+Alright ! Your project is ready 😊
 
 # GameWindow
 
