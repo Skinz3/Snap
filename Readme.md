@@ -56,7 +56,7 @@ In the nuget package manager, run the command ```Install-Package SFML.Net -Versi
 
 * The GameWindow class is a parent node of your game. It manages the render window (or the targeted handle) and the gameloop. GameWindow is derived from the ```SFML.Graphics.RenderWindow``` class. Game window does not have any direct drawable objects. However, it contains a current scene whose role is described in the section below. 
 
-# Scene
+# Scenes
 
 * A scene represents a set of drawable object. It can represent a level, a menu, or any type of context in a 2D game. This is an abstract class, so you will need to implement it. 
 
