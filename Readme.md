@@ -30,6 +30,8 @@
 
 # Setup
 
+## Visual Studio
+
 * Start by creating a console project in .Net Core.
 * In the nuget package manager, run the command :
 ```Install-Package SFML.Net -Version 2.5.0```
