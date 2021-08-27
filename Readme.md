@@ -165,3 +165,4 @@ public event MouseEvent OnMouseLeftClick;
 
   * FPSCounter simply allows you to count the number of frames per second for the current execution. ```The FpsCounter.Update()``` function must be called at each frame and the result can be accessed using the ```FpsCounter.FPS``` field. 
 
+
