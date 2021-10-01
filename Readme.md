@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="Misc/logo.png" />
-</p>
+
 
 # Hi there
 
